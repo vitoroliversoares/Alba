@@ -23,7 +23,7 @@ O Main reúne a landing aprovada e o catálogo avaliado em fork. O repositório 
 
 ## Verificação
 
-Na revisão de 22/11/2026, **23 testes passaram**, cobrindo catálogo, contas, privacidade e arquivos da distribuição estática. O QA adicional passou na renderização dos 15 planos, 12 itens recolhidos, três categorias e entrada direta em Todos; 72 recursos retornaram HTTP 200, o GLB foi lido e sete pares de contraste atenderam aos limiares definidos. Persistência, corrupção e bloqueio de armazenamento também passaram. O build padrão encontrou `spawn EPERM` neste workspace; a distribuição foi validada pela alternativa com esbuild nativo. Relatórios locais em `qa/` são gerados durante a validação e não são publicados como evidência visual.
+Na revisão de 22/11/2026, **26 testes passaram**, cobrindo catálogo, contas, privacidade, arquivos da distribuição estática e geração segura de configuração para deploy. O QA adicional passou na renderização dos 15 planos, 12 itens recolhidos, três categorias e entrada direta em Todos; 72 recursos retornaram HTTP 200, o GLB foi lido e sete pares de contraste atenderam aos limiares definidos. Persistência, corrupção e bloqueio de armazenamento também passaram. O build padrão encontrou `spawn EPERM` neste workspace; a distribuição foi validada pela alternativa com esbuild nativo. Relatórios locais em `qa/` são gerados durante a validação e não são publicados como evidência visual.
 
 A avaliação visual do responsável foi dada em conversa. Não há captura automatizada de navegador desta promoção. SSR, testes unitários e leitura de CSS não substituem teste visual ou fluxo completo de cadastro. Não foram criados usuários nem enviados e-mails de teste nesta promoção.
 

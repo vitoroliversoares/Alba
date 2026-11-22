@@ -14,6 +14,8 @@ Em PowerShell, a cópia equivalente é `Copy-Item public/app-config.example.json
 
 Para ativar contas em uma instância própria, preencha somente URL e chave **publicável** do seu projeto Supabase. Nunca adicione chave secreta, `service_role`, senha ou string de conexão ao cliente. O arquivo real de configuração é ignorado pelo Git.
 
+Na Vercel, o projeto usa `vercel.json`, Node.js 24 e saída em `dist/client/`. O build gera o JSON público a partir de `ALBA_SUPABASE_URL` e `ALBA_SUPABASE_PUBLISHABLE_KEY`. Sem essas variáveis e sem configuração local, publica o catálogo com contas desconectadas. Valores incompletos ou chaves secretas impedem a compilação. O envio real de confirmação e recuperação depende da configuração de SMTP e dos retornos autorizados no Supabase.
+
 ## Comandos
 
 | Comando | Finalidade |

@@ -32,3 +32,4 @@ backups/
 .cursor/
 AGENTS.md
 CLAUDE.md
+.vercel/
