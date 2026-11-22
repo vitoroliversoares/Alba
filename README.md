@@ -1,4 +1,10 @@
 <p align="center">
+  <img src="public/assets/sol-e-livro-logo.png" width="190" alt="Logo da Alba: um livro aberto com o sol ao fundo." />
+</p>
+
+<h1 align="center">Alba</h1>
+
+<p align="center">
   <img src="docs/assets/readme-cover.svg" width="100%" alt="Alba — De estudantes para estudantes. Boas descobertas para a vida estudantil." />
 </p>
 

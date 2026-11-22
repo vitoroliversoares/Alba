@@ -31,4 +31,4 @@ O sol com livro, o campus e referências visuais foram fornecidos pelo responsá
 
 Esses materiais, os favicons derivados, a identidade Alba e os arquivos de cena/modelo **não estão incluídos na licença MIT do código**. A presença no repositório não concede uma licença adicional de reutilização desses materiais. Para redistribuir uma versão com identidade própria, substitua os elementos de marca e confira as permissões dos materiais que desejar reutilizar. Não atribuímos aos arquivos provenientes do Canva uma licença aberta que não foi comprovada.
 
-A capa tipográfica em `docs/assets/readme-cover.svg` é código SVG original da documentação, sob MIT; ela não contém a ilustração da marca.
+A composição em `docs/assets/readme-cover.svg` faz parte da documentação original, sob MIT. A paisagem em `docs/assets/readme-campus.png`, também incorporada ao SVG, foi gerada com IA usando o campus aprovado como referência e segue o escopo das ilustrações descrito acima. Os títulos usam contornos de Fraunces, com licença OFL preservada; os textos menores usam a fonte sans-serif disponível no navegador. O logo acima da capa é o arquivo original da Alba, sem redesenho.
