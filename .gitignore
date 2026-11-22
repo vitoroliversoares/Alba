@@ -1,0 +1,25 @@
+node_modules/
+dist/
+.npm-cache/
+qa/.browser-profile/
+qa/*.cjs
+qa/*-ssr.css
+*.log
+
+# Configuração da instância e segredos locais
+public/app-config.json
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Evidências locais e arquivos gerados
+qa/*.json
+*.blend1
+.DS_Store
+Thumbs.db
+
+# Forks e backups pertencem somente ao workspace
+landing-fork-*/
+backups/

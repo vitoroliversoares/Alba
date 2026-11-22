@@ -1,0 +1,20 @@
+/* Shared by the HTML startup shell and React Suspense. No JS animation loop. */
+:root { --ease-in-out: cubic-bezier(.77, 0, .175, 1); }
+.brand-loading-view { display: contents; }
+.brand-loader { position: fixed; inset: 0; z-index: 30; display: grid; place-items: center; box-sizing: border-box; overflow: auto; background: var(--paper, #F7F2E9); color: var(--green, #16483B); opacity: 1; transition: opacity 240ms var(--ease-out, cubic-bezier(.23, 1, .32, 1)); }
+.brand-loader.is-exiting { opacity: 0; }
+.brand-loader-content { width: min(100%, 360px); box-sizing: border-box; padding: 32px 24px; text-align: center; }
+.brand-loader-mark { width: 160px; margin: 0 auto 19px; animation: brand-loader-float 2400ms var(--ease-in-out) infinite; }
+.brand-loader-mark img { display: block; width: 100%; height: auto; animation: brand-loader-reveal 240ms var(--ease-out, cubic-bezier(.23, 1, .32, 1)) both; }
+.brand-loader-name { margin: 0; font: 550 25px/1.25 'Fraunces', Georgia, serif; letter-spacing: -.6px; animation: brand-loader-reveal 240ms 60ms var(--ease-out, cubic-bezier(.23, 1, .32, 1)) both; }
+.brand-loader-message { margin: 12px 0 0; font: 12px/1.7 'DM Sans', sans-serif; color: var(--muted, #64685e); animation: brand-loader-reveal 240ms 120ms var(--ease-out, cubic-bezier(.23, 1, .32, 1)) both; }
+.brand-loader-line { position: relative; display: block; width: 88px; height: 2px; margin: 23px auto 0; overflow: hidden; border-radius: 2px; background: var(--soft-rule, #dcd4c5); }
+.brand-loader-line::after { content: ''; display: block; width: 30px; height: 100%; border-radius: inherit; background: var(--ochre, #F2D38B); animation: brand-loader-travel 1600ms linear infinite; }
+@keyframes brand-loader-reveal { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes brand-loader-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes brand-loader-travel { from { transform: translateX(-30px); } to { transform: translateX(88px); } }
+@media (prefers-reduced-motion: reduce) {
+  .brand-loader, .brand-loader.is-exiting { transition: none; opacity: 1; }
+  .brand-loader-mark, .brand-loader-mark img, .brand-loader-name, .brand-loader-message, .brand-loader-line::after { animation: none; }
+  .brand-loader-line::after { width: 100%; }
+}

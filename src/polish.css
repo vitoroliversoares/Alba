@@ -1,0 +1,232 @@
+/* HIG foundations translated to the web; the approved editorial identity remains. */
+:root {
+  --surface-raised: #fcf9f3;
+  --surface-muted: #eee8dc;
+  --text-secondary: #53604f;
+  --control-border: #788473;
+  --chapter-height: 64px;
+  --reading-width: 36rem;
+}
+body { padding: clamp(12px, 2.2vw, 32px); }
+.presentation, .newspaper { max-width: 1320px; border-radius: 14px; box-shadow: 0 6px 32px #22262105; }
+.catalog-return { max-width: 1320px; }
+.catalog-mark { display: grid; place-items: center; padding: 24px 0 28px; }
+.catalog-mark img { display: block; width: 170px; height: auto; object-fit: contain; }
+.presentation-masthead { padding: 24px 40px; gap: 24px 32px; min-height: 104px; flex-wrap: wrap; }
+.presentation-masthead::after { left: 40px; right: 40px; }
+.presentation-masthead .brand-name { font-size: 2rem; }
+.presentation-brand-note { font-size: .8125rem; line-height: 1.5; }
+.account-actions { gap: 16px; flex-wrap: wrap; }
+.login-link { min-height: 44px; min-width: 44px; padding: 10px 8px; font-size: .875rem; }
+.signup-button { min-height: 44px; padding: 12px 22px; font-size: .875rem; }
+.button, .icon-button { min-height: 44px; }
+.icon-button { min-width: 44px; }
+.button { border-radius: 7px; }
+.button:active { background-color: var(--surface-muted); }
+.button-primary:active { background-color: #0e392e; }
+.button-outline { border-color: var(--control-border); }
+.text-button { min-height: 44px; display: inline-flex; align-items: center; }
+.text-button:active, .login-link:active { color: var(--green); background: var(--surface-muted); }
+button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+.presentation .section-padding { scroll-margin-top: calc(var(--chapter-height) + 24px); }
+.chapter-bar { gap: 24px; min-height: 64px; padding: 4px 40px; background: var(--paper); }
+.chapter-bar nav { flex: 1; }
+.chapter-bar nav { gap: 24px; overflow: visible; flex-wrap: wrap; }
+.chapter-bar nav a { position: relative; min-height: 48px; padding: 10px 3px; font-size: .875rem; color: var(--text-secondary); }
+.chapter-bar nav a::after { content: ''; position: absolute; bottom: 3px; left: 3px; right: 3px; height: 2px; background: transparent; }
+.chapter-bar nav a[aria-current]::after { background: var(--green); }
+.chapter-bar nav a:focus-visible { outline-offset: 1px; }
+.chapter-saved { min-width: 44px; padding: 8px; gap: 9px; font-size: .875rem; border-radius: 6px; }
+.chapter-saved:active { background: var(--surface-muted); }
+.saved-path-count { font-size: .8125rem; min-width: 25px; height: 25px; border-color: var(--control-border); }
+.product-hero { padding: 76px 40px 80px; gap: 32px; grid-template-columns: 1.45fr 1fr; min-height: 570px; align-items: center; }
+.product-hero h1 { width: auto; max-width: 100%; font-size: clamp(2.5rem, 4.9vw, 4.25rem); font-weight: 600; line-height: 1.06; letter-spacing: -.045em; }
+.product-hero h1 span { text-wrap: balance; }
+.product-hero-description { max-width: 31rem; font-size: 1.125rem; line-height: 1.75; margin-top: 26px; }
+.product-hero-actions { gap: 12px; margin-top: 28px; }
+.product-hero-actions .button { min-height: 48px; font-size: .9375rem; padding: 13px 20px; }
+.hero-footnote { font-size: .8125rem; color: var(--text-secondary); line-height: 1.65; max-width: 29rem; }
+.hero-illustration { align-self: end; margin: 0 -20px 0 -38px; }
+.eyebrow { font-size: .75rem; line-height: 1.65; letter-spacing: .115em; }
+.section-padding { padding: 80px 48px; }
+.about-revista { margin-inline: 40px; padding: 72px 0; gap: 64px; }
+.about-revista-copy { max-width: var(--reading-width); font-size: 1rem; line-height: 1.85; }
+.section-heading { gap: 36px; margin-bottom: 36px; }
+.section-heading > p { font-size: 1rem; color: var(--text-secondary); }
+.section-heading h2 { font-size: clamp(2.125rem, 3.5vw, 3rem); line-height: 1.13; font-weight: 550; letter-spacing: -.035em; text-wrap: balance; }
+.interest-selector legend { font-size: .875rem; padding-bottom: 14px; }
+.interest-options { gap: 12px; }
+.interest-option { min-height: 70px; padding: 16px 18px; font-size: .9375rem; line-height: 1.5; border-color: var(--control-border); border-radius: 8px; background: var(--paper); }
+.interest-option > .icon { width: 22px !important; height: 22px !important; }
+.interest-option.is-selected { background: color-mix(in srgb, var(--ochre) 38%, var(--paper)); border-color: var(--green); box-shadow: inset 0 0 0 1px var(--green); }
+.interest-check { width: 21px; height: 21px; min-width: 21px; display: grid; place-items: center; border-radius: 50%; color: var(--paper); background: var(--green); }
+.discovery-spread { border: 1px solid var(--soft-rule); border-radius: 12px; overflow: hidden; grid-template-columns: 1.08fr 1fr; background: var(--surface-raised); }
+.discovery-art { min-height: 450px; }
+.discovery-page-note { left: 22px; bottom: 22px; padding: 10px 14px; font-size: 1.0625rem; line-height: 1.5; border-radius: 3px; max-width: calc(100% - 44px); }
+.discovery-copy { padding: 36px; }
+.discovery-text { padding-block: 28px; }
+.discovery-text h3 { font-size: clamp(2.125rem, 3.2vw, 2.75rem); line-height: 1.13; letter-spacing: -.035em; }
+.discovery-text p { font-size: 1rem; line-height: 1.8; max-width: var(--reading-width); }
+.discovery-actions { gap: 12px; align-items: stretch; }
+.discovery-actions .button { min-height: 46px; font-size: .875rem; padding-inline: 17px; }
+.save-path-button { min-height: 46px; padding: 11px 12px; border: 1px solid var(--control-border); border-radius: 7px; font-size: .875rem; gap: 7px; }
+.save-path-button.is-saved { background: #e4ece2; border-color: var(--green); font-weight: 600; }
+.save-path-button:active { background: var(--surface-muted); }
+.discovery-bottom { align-items: flex-start; padding-top: 18px; gap: 24px; }
+.discovery-bottom p { font-size: .8125rem; color: var(--text-secondary); line-height: 1.75; padding-top: 10px; }
+.discovery-bottom .text-button { font-size: .875rem; white-space: normal; text-align: left; }
+.discovery-status { font-size: .8125rem; line-height: 1.7; min-height: 23px; }
+.coffee-journey { margin-inline: 40px; padding: 72px 8px 16px; }
+.journey-step p { font-size: 1.0625rem; line-height: 1.8; }
+.step-label { font-size: .8125rem; }
+.coffee-motion-toggle { font-size: .8125rem; color: var(--text-secondary); min-height: 44px; }
+.trust-note { margin-inline: 40px; padding: 52px 8px; }
+.trust-note p { font-size: 1rem; line-height: 1.8; }
+.questions { margin-inline: 40px; padding: 72px 8px 80px; gap: 64px; }
+.questions-heading > p:last-child { font-size: 1rem; line-height: 1.8; color: var(--text-secondary); }
+.question-list summary { font-size: 1rem; padding: 22px 0; min-height: 80px; }
+.question-list details > p { font-size: .9375rem; line-height: 1.85; padding-bottom: 27px; }
+.join-revista { padding: 80px 32px 72px; }
+.join-revista .join-login, .join-login .text-button { font-size: .875rem !important; }
+.presentation-footer { padding: 40px 40px 26px; }
+.presentation-footer > div p, .presentation-demo-note { font-size: .8125rem; line-height: 1.7; }
+.presentation-footer nav a, .presentation-footer nav button { font-size: .875rem; min-height: 44px; display: inline-flex; align-items: center; }
+.dialog { border-radius: 14px; border-color: var(--control-border); box-shadow: 0 16px 60px #12291f24; }
+.dialog-inner { padding: 32px; }
+.dialog-heading h2 { line-height: 1.18; letter-spacing: -.025em; }
+.account-dialog { width: min(520px, calc(100% - 32px)); }
+.account-form input { min-height: 48px; border-color: var(--control-border); border-radius: 7px; }
+.prototype-caption, .account-switch, .saved-paths-intro, .saved-paths-footnote { font-size: .8125rem; line-height: 1.75; color: var(--text-secondary); }
+.account-switch .text-button { font-size: .875rem; }
+.saved-paths-dialog { width: min(590px, calc(100% - 32px)); }
+.saved-path-list li { grid-template-columns: 86px minmax(0, 1fr) 44px; gap: 20px; }
+.saved-path-list .icon-button { width: 44px; }
+.saved-path-list .text-button { font-size: .875rem; }
+.saved-paths-feedback { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; margin-top: 12px; }
+.saved-paths-feedback p { font-size: .8125rem; line-height: 1.75; color: var(--green); }
+.saved-paths-feedback .text-button { font-size: .875rem; color: var(--green); }
+.button-small, .filter-button { min-height: 44px; font-size: .875rem; }
+.catalog-return .text-button { font-size: .875rem; }
+.footer, .footer .text-button, .storage-note, .about-footnote { font-size: .8125rem; }
+.category { min-height: 44px; }
+.icon { forced-color-adjust: none; }
+@media (hover: hover) and (pointer: fine) {
+  .chapter-saved:hover { background: var(--surface-muted); }
+  .save-path-button:hover { border-color: var(--green); background: #e4ece2; }
+}
+@media (max-width: 1080px) {
+  .presentation-masthead, .chapter-bar { padding-inline: 30px; }
+  .presentation-masthead::after { left: 30px; right: 30px; }
+  .presentation-masthead .brand-name { font-size: 1.8rem; }
+  .chapter-bar nav { gap: 18px; }
+  .chapter-saved > span:not(.icon):not(.saved-path-count) { display: none; }
+  .product-hero { padding-inline: 32px; gap: 20px; }
+  .section-padding { padding-inline: 32px; }
+  .about-revista, .coffee-journey, .trust-note, .questions { margin-inline: 30px; padding-inline: 0; }
+  .interest-option { padding: 14px; font-size: .875rem; gap: 9px; }
+  .discovery-copy { padding: 28px; }
+  .discovery-art { min-height: 470px; }
+}
+@media (max-width: 860px) {
+  .product-hero { grid-template-columns: 1fr; padding-top: 54px; padding-bottom: 0; gap: 0; }
+  .product-hero h1 { max-width: 41rem; font-size: clamp(2.5rem, 7vw, 3.75rem); }
+  .product-hero-description { max-width: 36rem; }
+  .hero-illustration { width: 53%; max-width: 420px; justify-self: end; margin: 4px -20px 0 0; }
+  .interest-options { grid-template-columns: 1fr; gap: 9px; }
+  .interest-option { min-height: 58px; padding: 14px 18px; font-size: .9375rem; }
+  .discovery-spread { grid-template-columns: 1fr; }
+  .discovery-art { min-height: 0; aspect-ratio: 1.6; }
+  .discovery-copy { padding: 30px; }
+  .discovery-text h3 { max-width: 31rem; }
+  .discovery-text p { max-width: 36rem; }
+  .about-revista { gap: 35px; }
+  .questions { gap: 32px; }
+}
+@media (max-width: 600px) {
+  .catalog-mark { padding: 20px 0 24px; }
+  .catalog-mark img { width: 135px; height: auto; }
+  body { padding: 10px; }
+  .presentation, .newspaper { border-radius: 10px; }
+  .presentation-masthead { min-height: 0; padding: 22px; flex-wrap: wrap; gap: 18px; }
+  .presentation-masthead::after { left: 22px; right: 22px; }
+  .presentation-masthead .brand { width: auto; }
+  .presentation-masthead .brand-name { font-size: clamp(1.55rem, 6.2vw, 1.8rem); }
+  .presentation-brand-note { font-size: .8125rem; }
+  .account-actions { width: 100%; margin: 0; justify-content: flex-start; gap: 16px; }
+  .account-actions .login-link { order: 2; margin: 0; font-size: .875rem; }
+  .signup-button { min-height: 44px; padding: 12px 20px; font-size: .875rem; }
+  .chapter-bar { padding: 6px 16px; gap: 14px; align-items: center; }
+  .chapter-bar nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); flex: 1; gap: 0 10px; }
+  .chapter-bar nav a { white-space: normal; min-height: 44px; font-size: .8125rem; line-height: 1.5; padding: 9px 2px; }
+  .chapter-bar nav a::after { bottom: 4px; }
+  .chapter-saved { padding: 8px 5px; gap: 5px; min-width: 54px; }
+  .chapter-saved > .icon { width: 20px !important; height: 20px !important; }
+  .saved-path-count { min-width: 23px; height: 23px; font-size: .8125rem; }
+  .product-hero { padding: 42px 22px 0; min-height: 0; }
+  .product-hero h1 { font-size: clamp(2.5rem, 9vw, 3.3rem); letter-spacing: -.04em; }
+  .product-hero-description { font-size: 1rem; line-height: 1.8; margin-top: 23px; }
+  .product-hero-actions { gap: 10px; margin-top: 24px; }
+  .product-hero-actions .button { font-size: .875rem; min-height: 46px; padding: 12px 15px; white-space: normal; text-align: center; }
+  .hero-footnote { font-size: .8125rem; max-width: 27rem; }
+  .hero-illustration { width: 74%; max-width: 340px; margin: 14px -16px 0 0; }
+  .eyebrow { font-size: .75rem; }
+  .section-padding { padding: 56px 22px; }
+  .about-revista, .coffee-journey, .trust-note, .questions { margin-inline: 22px; padding-inline: 0; }
+  .about-revista { grid-template-columns: 1fr; padding-block: 54px; gap: 22px; }
+  .about-revista h2 { font-size: 2.125rem; }
+  .about-revista-copy { font-size: 1rem; line-height: 1.8; }
+  .section-heading { margin-bottom: 28px; }
+  .section-heading h2 { font-size: 2.125rem; }
+  .section-heading > p { font-size: .9375rem; }
+  .discovery-copy { padding: 24px 20px; min-height: 0; }
+  .discovery-art { aspect-ratio: 1.4; }
+  .discovery-page-note { left: 14px; bottom: 14px; max-width: calc(100% - 28px); font-size: .9375rem; padding: 8px 10px; }
+  .discovery-text { padding-block: 22px; }
+  .discovery-text h3 { font-size: 2.125rem; }
+  .discovery-text p { font-size: 1rem; line-height: 1.8; }
+  .discovery-actions { align-items: flex-start; flex-direction: column; }
+  .discovery-actions .button, .save-path-button { font-size: .875rem; min-height: 46px; }
+  .discovery-bottom { display: block; padding-top: 12px; }
+  .discovery-bottom .text-button { font-size: .875rem; }
+  .discovery-status { min-height: 23px; }
+  .coffee-journey { padding-block: 54px 24px; }
+  .journey-step p { font-size: .9375rem; }
+  .journey-step h3 { font-size: clamp(1.625rem, 5vw, 2rem); }
+  .coffee-motion-toggle { font-size: .8125rem; }
+  .trust-note { padding-block: 38px; }
+  .trust-note p { font-size: .9375rem; }
+  .questions { grid-template-columns: 1fr; padding-block: 52px; gap: 26px; }
+  .questions h2 { font-size: 2.125rem; }
+  .questions-heading > p:last-child, .question-list summary { font-size: 1rem; }
+  .question-list details > p { font-size: .9375rem; }
+  .join-revista { padding: 58px 24px 50px; }
+  .join-revista > p:not(.eyebrow) { font-size: 1rem; }
+  .join-actions .button, .join-actions .text-button { font-size: .9375rem; }
+  .presentation-footer { padding: 32px 22px 24px; }
+  .presentation-footer > div p, .presentation-demo-note { font-size: .8125rem; }
+  .dialog-inner, .saved-paths-dialog .dialog-inner { padding: 25px 22px; }
+  .saved-path-list li { grid-template-columns: 60px minmax(0, 1fr) 44px; gap: 11px; }
+  .saved-path-list img { width: 60px; height: 62px; }
+  .saved-path-list h3 { font-size: 1.375rem; }
+  .saved-path-list .text-button { white-space: normal; text-align: left; }
+  .benefit-card .button-small { min-height: 44px; font-size: .8125rem; }
+}
+@media (prefers-contrast: more) {
+  :root { --soft-rule: #788473; --rule: #53604f; --control-border: #16483b; }
+  .presentation, .dialog { box-shadow: none; }
+  .interest-option.is-selected { outline: 2px solid var(--green); outline-offset: 2px; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .dialog::backdrop { background: #39483c; backdrop-filter: none; }
+}
+@media (forced-colors: active) {
+  .icon { color: CanvasText; }
+  .button-primary .icon, .interest-check .icon { color: HighlightText; }
+  .interest-check { background: Highlight; color: HighlightText; }
+  .interest-option.is-selected, .save-path-button.is-saved { outline: 2px solid Highlight; }
+  .chapter-bar nav a[aria-current] { text-decoration: underline; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .tactile-button:active { transform: none; }
+}

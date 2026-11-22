@@ -1,0 +1,133 @@
+/* One visual standard for every service mark, including saved items. */
+.brand-badge { display: inline-grid; place-items: center; width: 52px; height: 52px; flex: 0 0 auto; border: 1px solid #cfc7b8; border-radius: 8px; background: #eee8dc; color: var(--green); }
+.brand-symbol { display: block; width: 30px; height: 30px; background: currentColor; mask: var(--brand-logo) center / contain no-repeat; -webkit-mask: var(--brand-logo) center / contain no-repeat; }
+.favorites-dialog .saved-benefit { grid-template-columns: 52px minmax(0, 1fr) 44px; }
+.real-catalog { border-radius: 8px; }
+.real-catalog .category-tabs { gap: 24px; }
+.real-catalog .category { font-size: 17px; }
+.catalog-intro-line { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 23px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.service-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 20px; padding-bottom: 32px; }
+.catalog-service { position: relative; min-width: 0; border: 1px solid var(--soft-rule); border-radius: 8px; background: var(--paper); }
+.catalog-service > .bookmark-button { position: absolute; top: 21px; right: 17px; color: var(--green); }
+.service-summary { display: block; padding: 24px; list-style: none; cursor: pointer; border-radius: 8px; }
+.service-summary::-webkit-details-marker { display: none; }
+.service-summary:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+.service-summary-heading { display: flex; align-items: center; gap: 16px; padding-right: 43px; min-height: 74px; }
+.service-summary-copy { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.service-name { font: 570 27px/1.15 'Fraunces', Georgia, serif; letter-spacing: -.7px; }
+.service-subtitle { min-height: 2.9em; font-size: 13px; line-height: 1.5; color: #50574d; }
+.service-summary-modalities { display: flex; flex-wrap: wrap; gap: 6px 14px; min-height: 20px; margin-top: 16px; color: var(--green); font-size: 11px; line-height: 1.8; }
+.service-summary-modalities > span + span { border-left: 1px solid var(--soft-rule); padding-left: 14px; }
+.service-summary-footer { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 17px; padding-top: 15px; border-top: 1px solid var(--soft-rule); font-size: 12px; line-height: 1.6; }
+.service-plan-count { color: var(--muted); }
+.service-expand-label { display: inline-flex; align-items: center; gap: 9px; color: var(--green); font-weight: 550; }
+.service-expand-icon { display: flex; }
+.when-expanded { display: none; }
+.catalog-service:has(> details[open]) { grid-column: 1 / -1; }
+.catalog-service > details[open] .service-summary { border-bottom: 1px solid var(--soft-rule); border-radius: 8px 8px 0 0; padding-bottom: 18px; }
+.catalog-service > details[open] .service-summary-heading { min-height: 0; }
+.catalog-service > details[open] > .service-summary .brand-badge, .catalog-service > details[open] .service-summary-modalities, .catalog-service > details[open] .when-collapsed { display: none; }
+.catalog-service > details[open] .service-subtitle { min-height: 0; }
+.catalog-service > details[open] .when-expanded { display: inline; }
+.catalog-service > details[open] .service-expand-icon { transform: rotate(180deg); }
+.catalog-service > details[open] .service-summary-footer { border: 0; margin-top: 12px; padding-top: 0; }
+.service-expanded { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 38px; align-items: start; padding: 28px; }
+.service-art { min-width: 0; }
+.service-art img { display: block; width: 100%; height: auto; aspect-ratio: 1.7; object-fit: cover; border-radius: 5px; }
+.service-art > p { margin-top: 15px; font-size: 13px; line-height: 1.75; color: #50574d; }
+.offer-plan-picker { min-width: 0; border: 0; padding: 0; margin: 25px 0 0; }
+.offer-plan-picker legend { margin-bottom: 11px; font-size: 11px; font-weight: 650; color: var(--green); }
+.offer-plan-options { display: grid; gap: 8px; }
+.offer-plan-option { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 64px; padding: 12px; text-align: left; border: 1px solid var(--soft-rule); border-radius: 5px; background: var(--paper); }
+.offer-plan-option > span { min-width: 0; }
+.offer-plan-option strong { display: block; font-size: 12px; line-height: 1.5; font-weight: 550; }
+.offer-plan-option small { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.offer-plan-option.is-selected { border-color: var(--green); box-shadow: inset 2px 0 var(--green); }
+.offer-plan-option.is-selected strong, .offer-plan-option > .icon { color: var(--green); }
+.offer-detail { min-width: 0; }
+.offer-kind-line { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--green); font-size: 11px; font-weight: 550; line-height: 1.5; }
+.offer-kind-line > span + span { padding-left: 16px; border-left: 1px solid var(--soft-rule); }
+.offer-detail h3 { margin-top: 13px; font-size: 32px; line-height: 1.2; letter-spacing: -.85px; font-weight: 550; }
+.offer-price { margin-top: 14px; font-size: 19px; line-height: 1.55; font-weight: 550; color: var(--green); }
+.offer-summary { margin-top: 13px; font-size: 14px; line-height: 1.8; max-width: 660px; }
+.offer-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; margin: 25px 0 0; }
+.offer-facts > div { padding-top: 16px; padding-bottom: 4px; border-top: 1px solid var(--soft-rule); }
+.offer-facts > div:last-child:nth-child(odd) { grid-column: 1 / -1; margin-top: 15px; }
+.offer-facts dt, .offer-steps h4 { margin: 0; font-size: 12px; font-weight: 650; color: var(--green); }
+.offer-facts dd { margin: 8px 0 0; font-size: 13px; line-height: 1.8; color: #50574d; }
+.offer-action-row { margin-top: 24px; }
+.offer-action-row .button { min-height: 46px; border-radius: 4px; font-size: 13px; text-decoration: none; white-space: normal; line-height: 1.5; }
+.offer-expired { font-size: 13px; color: var(--muted); }
+.offer-steps { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--soft-rule); }
+.offer-steps ol { margin: 12px 0 0; padding-left: 19px; font-size: 13px; line-height: 1.8; }
+.offer-steps li { padding-left: 5px; }
+.offer-steps li::marker { color: var(--green); font-variant-numeric: tabular-nums; }
+.offer-steps li + li { margin-top: 8px; }
+.offer-sources { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--soft-rule); color: var(--muted); font-size: 11px; line-height: 1.8; }
+.offer-sources ul { display: flex; flex-wrap: wrap; gap: 0 16px; list-style: none; padding: 0; margin: 6px 0 0; }
+.offer-sources a { display: inline-flex; align-items: center; gap: 5px; padding-block: 7px; color: var(--green); text-underline-offset: 3px; }
+.catalog-footer { gap: 20px; flex-wrap: wrap; }
+.catalog-account-link { min-height: 44px; font-size: 12px; padding-block: 10px; }
+.real-catalog .support-header-link { padding-inline: 10px; margin-right: 8px; }
+@media (max-width: 600px) {
+  .real-catalog .masthead > .brand { flex-shrink: 0; }
+  .real-catalog .brand-description { display: none; }
+  .real-catalog .header-actions { margin-left: auto; gap: 8px; }
+  .real-catalog .support-header-link { padding-inline: 8px; margin-right: 0; }
+  .real-catalog .support-header-link .icon { display: none; }
+  .real-catalog .favorites-link > span:not(.icon):not(.favorite-count) { display: none; }
+}
+.catalog-info-links { display: flex; align-items: center; flex-wrap: wrap; column-gap: 20px; }
+.catalog-info-links a, .catalog-info-links .text-button { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; padding-block: 10px; margin: 0; }
+.catalog-footer > p { font-size: 11px; line-height: 1.7; }
+@media (hover: hover) and (pointer: fine) {
+  .service-summary:hover .service-name { color: var(--green); }
+  .offer-plan-option:hover { border-color: var(--green); }
+}
+@media (max-width: 1000px) {
+  .service-expanded { grid-template-columns: 215px minmax(0, 1fr); gap: 26px; padding: 24px; }
+  .offer-facts { grid-template-columns: 1fr; }
+  .offer-facts > div + div { margin-top: 16px; }
+}
+@media (max-width: 800px) {
+  .service-grid { grid-template-columns: 1fr; gap: 15px; }
+  .service-summary { padding: 20px; }
+  .service-summary-heading { gap: 12px; }
+  .service-name { font-size: 25px; }
+  .service-subtitle { font-size: 12px; }
+}
+@media (max-width: 680px) {
+  .real-catalog .catalog-toolbar { align-items: stretch; flex-direction: column; gap: 9px; padding: 12px 0; }
+  .real-catalog .category-tabs { gap: 0; justify-content: space-between; min-height: 44px; }
+  .real-catalog .category { font-size: 13px; padding-inline: 2px; }
+  .real-catalog .filter-button { align-self: end; min-height: 44px; }
+  .catalog-intro-line { flex-direction: column; gap: 4px; font-size: 11px; margin-bottom: 17px; }
+  .service-grid { grid-template-columns: 1fr; gap: 14px; }
+  .service-summary { padding: 19px 16px 17px; }
+  .service-summary-heading { min-height: 70px; }
+  .brand-badge { width: 48px; height: 48px; }
+  .brand-symbol { width: 28px; height: 28px; }
+  .favorites-dialog .saved-benefit { grid-template-columns: 48px minmax(0, 1fr) 44px; gap: 10px; }
+  .catalog-service > .bookmark-button { top: 18px; right: 8px; }
+  .service-summary-modalities { margin-top: 12px; font-size: 11px; }
+  .service-summary-footer { margin-top: 14px; padding-top: 13px; font-size: 11px; }
+  .service-expanded { grid-template-columns: 1fr; padding: 19px 16px; gap: 26px; }
+  .service-art { display: grid; grid-template-columns: 110px minmax(0, 1fr); align-items: start; gap: 0 16px; }
+  .service-art img { aspect-ratio: 1.2; }
+  .service-art > p { margin-top: 0; font-size: 12px; }
+  .offer-plan-picker { grid-column: 1 / -1; margin-top: 21px; }
+  .offer-plan-options { gap: 7px; }
+  .offer-plan-option { min-height: 58px; }
+  .offer-plan-option > span { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+  .offer-plan-option small { margin-top: 0; }
+  .offer-detail h3 { font-size: 28px; }
+  .offer-price { font-size: 17px; }
+  .offer-action-row .button { width: 100%; }
+  .catalog-footer { align-items: start; }
+  .catalog-info-links a, .catalog-info-links .text-button { min-height: 44px; padding-block: 10px; margin: 0; }
+}
+@media (max-width: 360px) {
+  .service-summary-heading { gap: 10px; padding-right: 35px; }
+  .service-summary-footer { gap: 7px; }
+  .service-art { grid-template-columns: 90px minmax(0, 1fr); gap: 0 12px; }
+}

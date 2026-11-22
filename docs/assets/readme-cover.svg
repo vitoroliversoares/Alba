@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="460" viewBox="0 0 1200 460" role="img" aria-labelledby="title desc">
+  <title id="title">Alba — De estudantes para estudantes</title>
+  <desc id="desc">Capa editorial em papel creme, letras verdes e um detalhe ocre. Boas descobertas para a vida estudantil.</desc>
+  <rect width="1200" height="460" fill="#F7F2E9"/>
+  <path d="M54 48H1146M54 411H1146" stroke="#16483B" stroke-width="1"/>
+  <text x="56" y="88" fill="#16483B" font-family="Arial,sans-serif" font-size="12" letter-spacing="3">DE ESTUDANTES PARA ESTUDANTES</text>
+  <text x="48" y="264" fill="#16483B" font-family="Georgia,serif" font-size="180" letter-spacing="-8">Alba</text>
+  <rect x="516" y="152" width="5" height="122" fill="#F2D38B"/>
+  <g fill="#222621" font-family="Georgia,serif" font-size="42">
+    <text x="557" y="190">Boas descobertas</text>
+    <text x="557" y="244">para a vida estudantil.</text>
+  </g>
+  <text x="57" y="348" fill="#16483B" font-family="Arial,sans-serif" font-size="17">Um lugar para encontrar o que já pode fazer parte do seu semestre.</text>
+  <text x="57" y="389" fill="#53604F" font-family="Arial,sans-serif" font-size="12" letter-spacing="2">CATÁLOGO ABERTO · BRASIL · ACESSO GRATUITO</text>
+  <text x="1143" y="389" text-anchor="end" fill="#16483B" font-family="Georgia,serif" font-size="18">feito em comunidade</text>
+</svg>

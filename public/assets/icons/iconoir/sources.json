@@ -1,0 +1,92 @@
+[
+  {
+    "name": "book",
+    "sha": "c32af3caec05a0c3cb6d35fbab89157b8ca94ae4",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/book.svg"
+  },
+  {
+    "name": "bookmark",
+    "sha": "64fb840ffe055c1cabe62e931c323b84c589dac3",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/bookmark.svg"
+  },
+  {
+    "name": "check",
+    "sha": "9e287415d62b5bd0ed93bb3f02493471318f706d",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/check.svg"
+  },
+  {
+    "name": "nav-arrow-right",
+    "sha": "930d7a212953d716d219767130c8c9514306c254",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/nav-arrow-right.svg"
+  },
+  {
+    "name": "nav-arrow-down",
+    "sha": "2e5bd7383c9d097cdb0c1a1855644f608f84a050",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/nav-arrow-down.svg"
+  },
+  {
+    "name": "palette",
+    "sha": "272c4aec61c20227567f093803ecbc7834adf22e",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/palette.svg"
+  },
+  {
+    "name": "coffee-cup",
+    "sha": "1443074fb9452741e4feb145a1c0d92d819e1478",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/coffee-cup.svg"
+  },
+  {
+    "name": "xmark",
+    "sha": "89eb595632a1cc07696fb85566dbe3adb287c5aa",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/xmark.svg"
+  },
+  {
+    "name": "LICENSE",
+    "sha": "29a34a856af9e0622a8f2728662b94ef08133744",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/LICENSE"
+  },
+  {
+    "name": "menu",
+    "sha": "0c4517d6dca1eec2d2f89e9e7726315c655cc774",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/menu.svg"
+  },
+  {
+    "name": "search",
+    "sha": "fe5bbb87dca15f1a6138601b5410954e24213f64",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/search.svg"
+  },
+  {
+    "name": "filter",
+    "sha": "7f0100113983389d2e4baa1ceb9b0adc33902b80",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/filter.svg"
+  },
+  {
+    "name": "open-new-window",
+    "sha": "6b08350c18c181499588d6a26d4e9a334865212b",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/open-new-window.svg"
+  },
+  {
+    "name": "arrow-left",
+    "sha": "b9bb7e5a8845df56fc7efe60742cd104ffeeba48",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/arrow-left.svg"
+  },
+  {
+    "name": "laptop",
+    "sha": "d9ff30a72a4597d5075cb0440040a321fc6874e0",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/laptop.svg"
+  },
+  {
+    "name": "info-circle",
+    "sha": "3edff0e248c58d3b4251a2001dfae68ad1ff4fc5",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/info-circle.svg"
+  },
+  {
+    "name": "headset",
+    "sha": "633cd066ad956eae7c18340d274b49fc90d947b1",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/regular/headset.svg"
+  },
+  {
+    "name": "bookmark-solid",
+    "sha": "4990ab6488639d3643d763476f542b27829207a1",
+    "url": "https://github.com/iconoir-icons/iconoir/blob/main/icons/solid/bookmark.svg"
+  }
+]

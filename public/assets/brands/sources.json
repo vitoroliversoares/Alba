@@ -1,0 +1,98 @@
+[
+  {
+    "name": "github",
+    "file": "github.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/github.svg",
+    "sha256": "4A6B3318B5E73D259E32696463DD7FD2039250B067201866324ED95F4A04775D",
+    "retrievedAt": "2026-11-20",
+    "treatment": "Original SVG silhouette; CSS mask in Hub palette"
+  },
+  {
+    "name": "google",
+    "file": "google.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/google.svg",
+    "sha256": "1E3C503BE722CD0A5D6344FB5B35576FFFBDEE5B44479584C2B0078240747D58",
+    "retrievedAt": "2026-11-20",
+    "treatment": "Original SVG silhouette; CSS mask in Hub palette"
+  },
+  {
+    "name": "notion",
+    "file": "notion.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/notion.svg",
+    "sha256": "38FF053662AF2F309BB961DB3917EA3E609D3633FF6702C027C09E27AB6122F7",
+    "retrievedAt": "2026-11-20",
+    "treatment": "Original SVG silhouette; CSS mask in Hub palette"
+  },
+  {
+    "name": "canva",
+    "file": "canva.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/14.0.0/icons/canva.svg",
+    "sha256": "F0DCCD63D1359CE05C62A6BA5A4CC551DE7D7E954C1CA807118C5D8438D9AB3E",
+    "retrievedAt": "2026-11-20",
+    "treatment": "Original SVG silhouette; CSS mask in Hub palette"
+  },
+  {
+    "name": "spotify",
+    "file": "spotify.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/spotify.svg",
+    "retrievedAt": "2026-11-20",
+    "treatment": "Original SVG silhouette; CSS mask in Alba palette",
+    "sha256": "F41740BFC053EED60BF89366B0D6B9A73DE6BE4487A35C1E7681727FD31F9624"
+  },
+  {
+    "name": "apple-music",
+    "file": "apple-music.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/applemusic.svg",
+    "retrievedAt": "2026-11-20",
+    "treatment": "Original SVG silhouette; CSS mask in Alba palette",
+    "sha256": "38D51D4FA88A3FED3129FFC4925889B31A793EE1E9354821AC740C68348DC96D"
+  },
+  {
+    "name": "microsoft",
+    "file": "microsoft.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/microsoft.svg",
+    "retrievedAt": "2026-11-20",
+    "treatment": "Original SVG silhouette; CSS mask in Alba palette",
+    "sha256": "CDB46E002076E2A14BAF208F5F5767F24BB99B952372D840652E33C3FEF054BF"
+  },
+  {
+    "name": "autodesk",
+    "file": "autodesk.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/autodesk.svg",
+    "retrievedAt": "2026-11-20",
+    "treatment": "Original SVG silhouette; CSS mask in Alba palette",
+    "sha256": "2EF3178D58179A2764358112D4866CA08671BD92FB83C06A55549803220938EF"
+  },
+  {
+    "name": "adobe",
+    "file": "adobe.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/11.15.0/icons/adobe.svg",
+    "retrievedAt": "2026-11-22",
+    "treatment": "Original SVG silhouette; existing Alba CSS mask and badge",
+    "sha256": "F5B9A611B0EE89941972FA6EEF8074BCDEBCA2B1A6DB76DF795144158E351F0F"
+  },
+  {
+    "name": "youtube",
+    "file": "youtube.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/youtube.svg",
+    "retrievedAt": "2026-11-22",
+    "treatment": "Original SVG silhouette; existing Alba CSS mask and badge",
+    "sha256": "E816CCB358A5C93B3010BEAF758ADF3E6D027731DBE353CE81336B05FA60F24D"
+  },
+  {
+    "name": "jetbrains",
+    "file": "jetbrains.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/jetbrains.svg",
+    "retrievedAt": "2026-11-22",
+    "treatment": "Original SVG silhouette; existing Alba CSS mask and badge",
+    "sha256": "A70CA99B1E0581EBBDD35AECBB4010FE501AE277D4769F01F7CC6D4D2758D75A"
+  },
+  {
+    "name": "figma",
+    "file": "figma.svg",
+    "source": "https://github.com/simple-icons/simple-icons/blob/develop/icons/figma.svg",
+    "retrievedAt": "2026-11-22",
+    "treatment": "Original SVG; existing Alba mask and badge",
+    "sha256": "86076BE3220FD54D8C4867B81DCB9C560F2D8CDB7047CC8968BD232045D977B6"
+  }
+]
