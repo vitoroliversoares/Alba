@@ -23,3 +23,12 @@ Thumbs.db
 # Forks e backups pertencem somente ao workspace
 landing-fork-*/
 backups/
+
+# Configurações locais de assistentes
+.openai/
+.agents/
+.codex/
+.claude/
+.cursor/
+AGENTS.md
+CLAUDE.md

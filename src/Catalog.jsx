@@ -142,7 +142,6 @@ export function Catalog({ onBack, initialCategory = 'todos', onReady, onAccount,
         <header className="masthead">
           <a href="#inicio" className="brand" aria-label="Alba — início"><span className="brand-name">Alba</span><span className="brand-description">Hub de Benefícios Estudantis</span></a>
           <div className="header-actions">
-            <a href="/apoie.html" className="support-header-link"><Icon name="coffee-cup" size={16} /><span>Apoie</span></a>
             {onAccount && <button type="button" className="text-button catalog-account-link" onClick={onAccount}>{hasAccount ? 'Minha conta' : 'Entrar'}</button>}
             <button type="button" className="favorites-link" aria-label="Favoritos" onClick={() => favoritesRef.current.showModal()}><Icon name={savedServices.length ? 'bookmark-solid' : 'bookmark-simple'} size={25} /><span>Favoritos</span>{savedServices.length > 0 && <span className="favorite-count" aria-label={`${savedServices.length} salvos`}>{savedServices.length}</span>}</button>
             <div className="mobile-menu" ref={menuRef}>
@@ -191,7 +190,7 @@ export function Catalog({ onBack, initialCategory = 'todos', onReady, onAccount,
             )}
           </section>
         </main>
-        <footer className="footer catalog-footer"><p>Fontes oficiais · Última revisão em <time dateTime={VERIFIED_AT}>{dateLabel(VERIFIED_AT)}</time></p><nav className="catalog-info-links" aria-label="Sobre a Alba"><a href="/quem-somos.html">Quem somos</a><a href="/privacidade.html">Privacidade e LGPD</a><a href="/apoie.html">Apoie a Alba</a><button type="button" className="text-button" onClick={() => aboutRef.current.showModal()}>Sobre o catálogo</button></nav></footer>
+        <footer className="footer catalog-footer"><p>Fontes oficiais · Última revisão em <time dateTime={VERIFIED_AT}>{dateLabel(VERIFIED_AT)}</time></p><nav className="catalog-info-links" aria-label="Sobre a Alba"><a href="/quem-somos.html">Quem somos</a><a href="/privacidade.html">Privacidade e LGPD</a><button type="button" className="text-button" onClick={() => aboutRef.current.showModal()}>Sobre o catálogo</button></nav></footer>
       </div>
       <Dialog dialogRef={filterRef} title="Do seu jeito" className="filter-dialog">
         <p className="dialog-intro">Escolha as modalidades que quer comparar.</p>

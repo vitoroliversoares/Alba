@@ -27,7 +27,7 @@ URLs, versões e hashes dos vetores estão nos manifestos `sources.json` de cada
 
 ## Identidade visual, ilustrações e modelo
 
-O sol com livro, o campus e referências visuais foram fornecidos pelo responsável a partir do Canva. Algumas imagens são derivadas ou foram geradas com ferramentas de imagem; o café e a composição de apoio foram trabalhados no Blender. A origem de cada arquivo está em [Proveniência dos assets](public/assets/README.md).
+O sol com livro, o campus e referências visuais foram fornecidos pelo responsável a partir do Canva. Algumas imagens são derivadas ou foram geradas com ferramentas de imagem; o modelo de café da apresentação foi trabalhado no Blender. A origem de cada arquivo está em [Proveniência dos assets](public/assets/README.md).
 
 Esses materiais, os favicons derivados, a identidade Alba e os arquivos de cena/modelo **não estão incluídos na licença MIT do código**. A presença no repositório não concede uma licença adicional de reutilização desses materiais. Para redistribuir uma versão com identidade própria, substitua os elementos de marca e confira as permissões dos materiais que desejar reutilizar. Não atribuímos aos arquivos provenientes do Canva uma licença aberta que não foi comprovada.
 

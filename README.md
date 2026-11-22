@@ -38,9 +38,9 @@ GitHub, Google, Notion, Canva, Spotify, Apple Music, Microsoft, Autodesk, Adobe,
 
 As ofertas incluem licenças gratuitas, assinaturas com preço estudantil e testes. O teste do Canva Pro é identificado como **promoção geral**, acessível também a universitários elegíveis. Não é apresentado como desconto exclusivo para estudantes.
 
-Preços e condições mudam. Cada plano mantém sua própria data de verificação; a revisão mais recente é de **22/11/2026**. Consulte as [fontes do catálogo](qa/catalog-sources.md) e confirme a oferta no fornecedor. A versão para os EUA está em [planejamento](docs/expansao-eua.md).
+Preços e condições mudam. Cada plano mantém sua própria data de verificação; a revisão mais recente é de **22/11/2026**. Consulte as [fontes do catálogo](docs/catalog-sources.md) e confirme a oferta no fornecedor. A versão para os EUA está em [planejamento](docs/expansao-eua.md).
 
-> **Em construção, com cuidado.** O catálogo funciona sem conta. O cadastro opcional já tem integração com Supabase Auth, mas ainda há validações de e-mail e privacidade para o lançamento. Favoritos continuam locais; sincronização e pagamentos ainda não estão ativos. Veja o [estado do projeto](docs/project_state.md).
+> **Em construção, com cuidado.** O catálogo funciona sem conta. O cadastro opcional já tem integração com Supabase Auth, mas ainda há validações de e-mail e privacidade para o lançamento. Favoritos continuam locais, sem sincronização. Veja o [estado do projeto](docs/project_state.md).
 
 ## Para rodar por aí
 
@@ -52,7 +52,7 @@ cp public/app-config.example.json public/app-config.json
 npm run dev
 ```
 
-No PowerShell, use `Copy-Item public/app-config.example.json public/app-config.json` no lugar de `cp`, se preferir. O exemplo deixa a instância sem conexão com contas ou pagamento; você já pode explorar o catálogo inteiro.
+No PowerShell, use `Copy-Item public/app-config.example.json public/app-config.json` no lugar de `cp`, se preferir. O exemplo deixa a instância sem conexão com contas; você já pode explorar o catálogo inteiro.
 
 ```sh
 npm run build
@@ -69,10 +69,6 @@ Encontrou uma oferta, uma condição que mudou ou algo que poderia ficar mais ac
 Leia [Como contribuir](CONTRIBUTING.md) e o [protocolo de validação](docs/research/protocolo-validacao.md). A pesquisa aprofundada do [Figma Education no Brasil](docs/research/figma-education.md) mostra o cuidado esperado com elegibilidade, duração e divergências entre fontes.
 
 Mudanças substanciais são avaliadas em fork local antes de integrar o Main. **Este repositório contém somente o Main; as pastas de fork e backups não são publicadas.**
-
-### Ajude-nos com um café
-
-A Alba não tem fins lucrativos. O apoio, quando disponível, será voluntário e simbólico, no valor de um café, para motivar quem está construindo o projeto. Não libera benefícios ou funções extras. O link de apoio ainda está em preparação.
 
 ## Código aberto, créditos preservados
 

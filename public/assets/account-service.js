@@ -7,12 +7,7 @@ export function validateAppConfig(value = {}) {
     if (url.protocol === 'https:' && /^[a-z0-9]+\.supabase\.co$/.test(url.hostname) && !url.username && !url.password && !url.port) supabaseUrl = url.origin;
   } catch { /* Unconfigured until an Alba project is connected. */ }
   const key = typeof value.supabasePublishableKey === 'string' && /^sb_publishable_[A-Za-z0-9_-]+$/.test(value.supabasePublishableKey) ? value.supabasePublishableKey : null;
-  let supportUrl = null;
-  try {
-    const url = new URL(value.supportUrl);
-    if (url.protocol === 'https:' && !url.username && !url.password) supportUrl = url.href;
-  } catch { /* No payment recipient has been configured. */ }
-  return { supabaseUrl, supabasePublishableKey: key, supportUrl, authEnabled: Boolean(supabaseUrl && key) };
+  return { supabaseUrl, supabasePublishableKey: key, authEnabled: Boolean(supabaseUrl && key) };
 }
 
 let configPromise;

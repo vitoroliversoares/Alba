@@ -15,7 +15,6 @@ O Main reúne a landing aprovada e o catálogo avaliado em fork. O repositório 
 | Figma | Gratuidade educacional pesquisada e aprovada | Reverificação e vencimento na conta; fontes divergem sobre duração |
 | Itens expandidos | Ilustrações por categoria restauradas | Logos permanecem nos itens recolhidos |
 | Navegação | Todos ao abrir/recarregar o catálogo | Categoria explícita ainda abre sua própria seleção |
-| Apoie | Arte transparente e foco do título corrigido | Link financeiro ainda não fornecido |
 | Carregamento | Sol e livro, mínimo de 1 s e saída de 240 ms | Movimento reduzido respeitado |
 | Contas | Supabase Auth e tabelas com RLS por usuário | Validação de e-mail real e configuração pública pendentes |
 | Favoritos e preferências | Persistência no navegador | Sem sincronização com banco, inclusive com login |
@@ -24,7 +23,7 @@ O Main reúne a landing aprovada e o catálogo avaliado em fork. O repositório 
 
 ## Verificação
 
-Na promoção de 22/11/2026, **31 testes passaram**, com zero falhas. O QA adicional passou na renderização dos 15 planos, 12 itens recolhidos, três categorias e entrada direta em Todos; 77 recursos retornaram HTTP 200, o GLB foi lido e sete pares de contraste atenderam aos limiares definidos. Persistência, corrupção e bloqueio de armazenamento também foram verificados. Os relatórios locais em `qa/` são gerados durante a validação e não são publicados como evidência visual. O build padrão encontrou `spawn EPERM`; o build alternativo com esbuild nativo e o empacotamento Sites passaram.
+Na revisão de 22/11/2026, **23 testes passaram**, cobrindo catálogo, contas, privacidade e arquivos da distribuição estática. O QA adicional passou na renderização dos 15 planos, 12 itens recolhidos, três categorias e entrada direta em Todos; 72 recursos retornaram HTTP 200, o GLB foi lido e sete pares de contraste atenderam aos limiares definidos. Persistência, corrupção e bloqueio de armazenamento também passaram. O build padrão encontrou `spawn EPERM` neste workspace; a distribuição foi validada pela alternativa com esbuild nativo. Relatórios locais em `qa/` são gerados durante a validação e não são publicados como evidência visual.
 
 A avaliação visual do responsável foi dada em conversa. Não há captura automatizada de navegador desta promoção. SSR, testes unitários e leitura de CSS não substituem teste visual ou fluxo completo de cadastro. Não foram criados usuários nem enviados e-mails de teste nesta promoção.
 
@@ -32,7 +31,6 @@ A avaliação visual do responsável foi dada em conversa. Não há captura auto
 
 - Validar confirmação e recuperação com e-mail real e configurar envio para público externo.
 - Concluir contato e obrigações de privacidade conforme a hospedagem escolhida.
-- Configurar o link de apoio real quando o responsável o criar.
 - Rever ofertas com prazo: campanha Adobe até 27/11/2026 e resgate Google AI Plus até 31/12/2026.
 - Fazer QA visual em celular e desktop e observar navegação, foco e WebGL no navegador.
 

@@ -232,7 +232,6 @@
   .faq-keyboard-tip { display: block; }
 }
 @media (hover: hover) and (pointer: fine) {
-  .support-header-link:hover { background: #f2d38b85; }
   .spotlight-trigger:hover, .saved-pill-trigger:hover { background: var(--green-soft); }
 }
 @media (max-width: 780px) {

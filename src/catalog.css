@@ -68,13 +68,10 @@
 .offer-sources a { display: inline-flex; align-items: center; gap: 5px; padding-block: 7px; color: var(--green); text-underline-offset: 3px; }
 .catalog-footer { gap: 20px; flex-wrap: wrap; }
 .catalog-account-link { min-height: 44px; font-size: 12px; padding-block: 10px; }
-.real-catalog .support-header-link { padding-inline: 10px; margin-right: 8px; }
 @media (max-width: 600px) {
   .real-catalog .masthead > .brand { flex-shrink: 0; }
   .real-catalog .brand-description { display: none; }
   .real-catalog .header-actions { margin-left: auto; gap: 8px; }
-  .real-catalog .support-header-link { padding-inline: 8px; margin-right: 0; }
-  .real-catalog .support-header-link .icon { display: none; }
   .real-catalog .favorites-link > span:not(.icon):not(.favorite-count) { display: none; }
 }
 .catalog-info-links { display: flex; align-items: center; flex-wrap: wrap; column-gap: 20px; }

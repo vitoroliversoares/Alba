@@ -6,11 +6,9 @@ const config = { supabaseUrl: 'https://testproject.supabase.co', supabasePublish
 const session = { access_token: 'test-access', refresh_token: 'discard-this', expires_in: 3600, user: { id: 'user-a', email: 'student@example.test', user_metadata: { display_name: 'Student' } } };
 const ok = data => new Response(JSON.stringify(data), { status: 200 });
 
-test('connection settings reject secret keys, insecure endpoints and unsafe support URLs', () => {
+test('connection settings reject secret keys and insecure endpoints', () => {
   assert.equal(validateAppConfig(config).authEnabled, true);
   for (const value of [null, {}, { ...config, supabasePublishableKey: 'sb_secret_private' }, { ...config, supabaseUrl: 'http://testproject.supabase.co' }, { ...config, supabaseUrl: 'https://testproject.supabase.co.attacker.test' }, { ...config, supabaseUrl: 'https://user:pass@testproject.supabase.co' }]) assert.equal(validateAppConfig(value).authEnabled, false);
-  for (const supportUrl of ['javascript:alert(1)', 'http://payment.example.test/', 'https://user:password@payment.example.test']) assert.equal(validateAppConfig({ supportUrl }).supportUrl, null);
-  assert.equal(validateAppConfig({ supportUrl: 'https://payment.example.test/alba' }).supportUrl, 'https://payment.example.test/alba');
 });
 
 test('unconfigured account creation sends no credentials anywhere', async () => {

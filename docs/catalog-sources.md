@@ -13,11 +13,11 @@ Base conferida em **20/11/2026**, com ampliação em **22/11/2026**, a partir de
 
 Adobe tem prazo de resgate com bloqueio da ação após o fim da campanha, no corte brasileiro já usado pelo catálogo. A promoção precisa de nova revisão em 28/11; não atualizar preço automaticamente por suposição. A JetBrains apresenta redações diferentes sobre duração mínima em suas páginas; por isso a interface informa programa de longa duração e remete a duração exata ao formulário, sem prometer elegibilidade para curso curto ou bootcamp.
 
-Figma foi posteriormente pesquisado em profundidade, avaliado no fork e aprovado para promoção ao Main em 22/11/2026. O catálogo atual tem **12 serviços e 15 opções**. Obsidian permanece fora do catálogo. A versão dos EUA segue somente como [plano](../docs/expansao-eua.md), por escolha explícita do responsável.
+Figma foi posteriormente pesquisado em profundidade, avaliado no fork e aprovado para promoção ao Main em 22/11/2026. O catálogo atual tem **12 serviços e 15 opções**. Obsidian permanece fora do catálogo. A versão dos EUA segue somente como [plano](expansao-eua.md), por escolha explícita do responsável.
 
 ### Figma Education — promoção aprovada
 
-Gratuito para estudantes elegíveis no Brasil em equipe Education, com solicitação individual e verificação acadêmica. A RNP/CAFe corrobora disponibilidade regional; não garante todas as instituições. Uso educacional, sem promessa de uso comercial ou IA ilimitada. As fontes divergem entre um e dois anos; conferir vencimento na conta e reverificação. Pesquisa e fontes oficiais em [Figma Education](../docs/research/figma-education.md).
+Gratuito para estudantes elegíveis no Brasil em equipe Education, com solicitação individual e verificação acadêmica. A RNP/CAFe corrobora disponibilidade regional; não garante todas as instituições. Uso educacional, sem promessa de uso comercial ou IA ilimitada. As fontes divergem entre um e dois anos; conferir vencimento na conta e reverificação. Pesquisa e fontes oficiais em [Figma Education](research/figma-education.md).
 
 ## Base consultada em 20/11/2026
 
@@ -58,6 +58,6 @@ Logos em `public/assets/brands/`, com origem e SHA-256 em `sources.json`. Silhue
 
 ## Verificação
 
-Os registros acima sobre oito serviços são históricos da primeira ampliação. A rodada aprovada contém 11 testes de catálogo e 31 testes no conjunto da aplicação. O QA atual renderiza os 15 planos, 12 itens recolhidos e três categorias, incluindo entrada direta em Todos. Resultados técnicos estão no estado do projeto. Fontes comerciais foram conferidas pela ferramenta de pesquisa, não por teste automatizado de disponibilidade.
+Os registros acima sobre oito serviços são históricos da primeira ampliação. O catálogo tem 11 testes e o QA renderiza os 15 planos, 12 itens recolhidos e três categorias, incluindo entrada direta em Todos. Resultados técnicos estão no estado do projeto. Fontes comerciais foram conferidas por pesquisa documental, não por teste automatizado de disponibilidade.
 
 A prévia local permite revisão em `http://127.0.0.1:4174/#catalogo`. QA visual por captura continua pendente devido à indisponibilidade do host nativo. A conferência editorial não garante aprovação da conta, nem validade futura dos preços.

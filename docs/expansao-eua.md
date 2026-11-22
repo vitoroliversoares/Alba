@@ -46,8 +46,8 @@ Pesquisa de fontes oficiais em **22/11/2026**. “Confirmado na fonte” signifi
 2. Tratar preço, cobrança mensal/anual, impostos e compromisso separadamente. `locale` só formata a apresentação; não converte moeda nem determina elegibilidade.
 3. Manter a data de conferência em cada oferta. Prazos de campanhas devem trazer o fuso aplicável ou uma condição explícita; o corte atual em São Paulo não serve automaticamente para os EUA.
 4. Preservar favoritos locais existentes. Um serviço salvo não pode ser relabelado como outro produto, nem dar a entender que uma oferta americana se aplica a quem estuda no Brasil.
-5. Preparar navegação e textos em inglês revisados por contexto, incluindo mensagens de conta, dúvidas, privacidade, carregamento e apoio. Não ativar uma interface parcialmente traduzida.
-6. Revisar aviso de privacidade, contato do responsável, público etário, domínio, e-mails de Auth e destino de apoio para a operação americana. Não criar outro banco ou cobrar em USD apenas por alterar o idioma do catálogo.
+5. Preparar navegação e textos em inglês revisados por contexto, incluindo mensagens de conta, dúvidas, privacidade e carregamento. Não ativar uma interface parcialmente traduzida.
+6. Revisar aviso de privacidade, contato do responsável, público etário, domínio e e-mails de Auth para a operação americana. Não criar outro banco apenas por alterar o idioma do catálogo.
 
 ## Critérios para publicar
 
@@ -56,7 +56,7 @@ Pesquisa de fontes oficiais em **22/11/2026**. “Confirmado na fonte” signifi
 - [ ] Testes para evitar mistura de países, moedas, prazos e IDs de favoritos.
 - [ ] Escolha de país e idioma acessível e conferida em celular.
 - [ ] Textos completos em inglês, incluindo contas e páginas institucionais.
-- [ ] Domínio, e-mails, privacidade e apoio preparados para o público escolhido.
+- [ ] Domínio, e-mails e privacidade preparados para o público escolhido.
 - [ ] Autorização para implementar e publicar a versão americana.
 
 Não houve criação de conta de estudante, matrícula enviada, checkout concluído ou contratação durante a pesquisa.

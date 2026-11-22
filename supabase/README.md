@@ -17,14 +17,13 @@ Um trigger em `auth.users` cria perfil e linha de preferências no cadastro, apr
 
 Perfis e preferências iniciais passam a ser criados automaticamente no banco. **A interface ainda não sincroniza favoritos, editorias ou momentos:** suas marcações continuam no navegador, inclusive para pessoas conectadas. Os novos registros de preferências iniciam vazios; `routine_moments = NULL` significa que a rotina ainda não foi configurada, enquanto `[]` representa uma seleção explicitamente vazia.
 
-O catálogo continua versionado em `src/data/catalog.js`. `service_id` usa o slug do serviço; não há chave estrangeira para um catálogo remoto. Novas editorias ou momentos exigem revisar as restrições das preferências antes de habilitar sincronização. Não há tabelas de Stripe, checkout ou contribuições; o link financeiro segue pendente.
+O catálogo continua versionado em `src/data/catalog.js`. `service_id` usa o slug do serviço; não há chave estrangeira para um catálogo remoto. Novas editorias ou momentos exigem revisar as restrições das preferências antes de habilitar sincronização.
 
 ## SQL e registro
 
 - SQL aplicado: [create_alba_account_tables.sql](sql/create_alba_account_tables.sql).
-- Migração remota: **`20261122204255_create_alba_account_tables`**, registrada pelo `apply_migration` do MCP no projeto hospedado.
-- A CLI não está instalada nesta sessão. O SQL foi preparado em arquivo, aplicado pela integração e preservado como artefato; este diretório não finge ser uma instalação local da CLI nem inventa seu histórico de migrações.
-- Evidências: [database-schema-checks.json](../qa/database-schema-checks.json).
+- Migração remota: **`20261122204255_create_alba_account_tables`**, registrada no projeto hospedado.
+- O SQL aplicado está preservado neste diretório. Não aplique novamente o SQL inicial em uma instância que já recebeu essa migração; prepare uma nova migração para alterações posteriores.
 
 ## Verificação
 

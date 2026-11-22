@@ -18,7 +18,7 @@ import {
   TOPICS,
 } from './data/editorialData.js';
 import './landing.css';
-import './interactive-antigravity.css';
+import './interactive-editorial.css';
 
 const Catalog = lazy(() => import('./Catalog.jsx').then(module => ({ default: module.Catalog })));
 
@@ -329,7 +329,6 @@ export function App({ onViewPending, onViewReady } = {}) {
           </div>
 
           <div className="account-actions">
-            <a href="/apoie.html" className="support-header-link"><Iconoir name="coffee-cup" size={16} /><span>Apoie</span></a>
             <button type="button" className="login-link" onClick={() => account('login')}>
               {accountUser ? 'Minha conta' : 'Entrar'}
             </button>
@@ -516,7 +515,6 @@ export function App({ onViewPending, onViewReady } = {}) {
             <a href="#possibilidades">Possibilidades</a>
             <a href="/quem-somos.html">Quem somos</a>
             <a href="/privacidade.html">Privacidade e LGPD</a>
-            <a href="/apoie.html">Apoie a Alba</a>
             <button type="button" onClick={() => explore()}>
               Benefícios
             </button>
