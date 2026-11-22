@@ -6,7 +6,7 @@ status: prototipo-funcional
 
 # Estado do projeto — Alba
 
-O Main reúne a landing aprovada e o catálogo avaliado em fork. O responsável autorizou a promoção e a criação de um repositório GitHub. Forks, backups e arquivos privados do workspace não integram o repositório.
+O Main reúne a landing aprovada e o catálogo avaliado em fork. O repositório público é [vitoroliversoares/Alba](https://github.com/vitoroliversoares/Alba), com a branch `main`. Forks, backups e arquivos privados do workspace não integram o repositório. A configuração real de contas continua somente no Main local; o Git inclui um exemplo desconectado.
 
 | Área | Implementado | Limite atual |
 | --- | --- | --- |
