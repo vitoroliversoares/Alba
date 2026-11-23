@@ -11,4 +11,5 @@ const html = readFileSync(path.join(root, 'index.html'), 'utf8')
   .replace('src="/src/main.jsx"', 'src="/assets/main.js"')
   .replace('</head>', '  <link rel="stylesheet" href="/assets/main.css" />\n  </head>');
 writeFileSync(path.join(output, 'index.html'), html);
+writeFileSync(path.join(output, 'oauth-callback.html'), html.replace('<title>Alba</title>', '<title>Seu acesso — Alba</title>').replace('<meta charset="UTF-8" />', '<meta charset="UTF-8" /><meta name="referrer" content="no-referrer" />'));
 console.log('React client and local assets prepared in dist/client.');

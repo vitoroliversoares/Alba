@@ -12,8 +12,11 @@ import {
 } from './components/InteractiveSections.jsx';
 import { FlowButton } from './components/SpellPrimitives.jsx';
 import { AccountDialog } from './components/AccountDialog.jsx';
+import { accountErrorMessage, getAccountService } from '../public/assets/account-service.js';
+import { useAccountCollection } from './use-account-collection.js';
+import './account-collection.css';
+import { clearAlbaPreferences } from '../public/assets/privacy-controls.js';
 import {
-  SAVED_TOPICS_KEY,
   STEPS,
   TOPICS,
 } from './data/editorialData.js';
@@ -21,17 +24,6 @@ import './landing.css';
 import './interactive-editorial.css';
 
 const Catalog = lazy(() => import('./Catalog.jsx').then(module => ({ default: module.Catalog })));
-
-function readSavedTopics() {
-  try {
-    const parsed = JSON.parse(localStorage.getItem(SAVED_TOPICS_KEY) || '[]');
-    return Array.isArray(parsed)
-      ? parsed.filter((id) => TOPICS.some((t) => t.id === id))
-      : [];
-  } catch {
-    return [];
-  }
-}
 
 export function App({ onViewPending, onViewReady } = {}) {
   const [catalogOpen, setCatalogOpen] = useState(
@@ -43,12 +35,13 @@ export function App({ onViewPending, onViewReady } = {}) {
   }, [catalogOpen, onViewPending, onViewReady]);
   const [catalogCategory, setCatalogCategory] = useState('todos');
   const [accountMode, setAccountMode] = useState('signup');
-  const [accountUser, setAccountUser] = useState(null);
+  const { collection, state: savedState } = useAccountCollection();
+  const accountUser = savedState.user;
+  const [accountReason, setAccountReason] = useState('');
   const [menuOpen, setMenuOpen] = useState(false);
   const [spotlightOpen, setSpotlightOpen] = useState(false);
   const [spotlightViaKey, setSpotlightViaKey] = useState(false);
-  const [savedTopics, setSavedTopics] = useState(readSavedTopics);
-  const [storageUnavailable, setStorageUnavailable] = useState(false);
+  const savedTopics = savedState.savedTopics;
   const [toastMessage, setToastMessage] = useState('');
   const [activeStepIndex, setActiveStepIndex] = useState(0);
 
@@ -58,6 +51,17 @@ export function App({ onViewPending, onViewReady } = {}) {
   const stepRefs = useRef([]);
   const heroRef = useRef(null);
   const heroBookRef = useRef(null);
+  useEffect(() => { clearAlbaPreferences(); }, []);
+  useEffect(() => {
+    let active = true;
+    getAccountService().then(client => {
+      if (!active) return;
+      const notice = client.consumeAuthNotice();
+      if (notice) { setToastMessage(notice); setCatalogOpen(true); }
+    });
+    return () => { active = false; };
+  }, []);
+  useEffect(() => { if (!accountUser) savedDialogRef.current?.close(); }, [accountUser]);
 
   // A small pointer-led drift makes the paper cutout feel loose on the page.
   useEffect(() => {
@@ -137,14 +141,6 @@ export function App({ onViewPending, onViewReady } = {}) {
   }, []);
 
   useEffect(() => {
-    const onStorage = (event) => {
-      if (event.key === SAVED_TOPICS_KEY) setSavedTopics(readSavedTopics());
-    };
-    window.addEventListener('storage', onStorage);
-    return () => window.removeEventListener('storage', onStorage);
-  }, []);
-
-  useEffect(() => {
     if (!toastMessage) return;
     const timer = setTimeout(() => setToastMessage(''), 2600);
     return () => clearTimeout(timer);
@@ -210,32 +206,21 @@ export function App({ onViewPending, onViewReady } = {}) {
     };
   }, [menuOpen]);
 
-  function persistSavedTopics(next) {
-    setSavedTopics(next);
-    try {
-      localStorage.setItem(SAVED_TOPICS_KEY, JSON.stringify(next));
-      setStorageUnavailable(false);
-    } catch {
-      setStorageUnavailable(true);
-    }
-  }
-
-  function toggleTopic(topic) {
+  async function toggleTopic(topic) {
+    if (!accountUser) { setSpotlightOpen(false); savedDialogRef.current?.close(); account('signup', 'save'); return; }
     const saved = savedTopics.includes(topic.id);
-    const next = saved ? savedTopics.filter((id) => id !== topic.id) : [...savedTopics, topic.id];
-    persistSavedTopics(next);
-    setToastMessage(`Caminho ${topic.name} ${saved ? 'removido do' : 'guardado no'} caderno.`);
+    try {
+      await collection.toggleTopic(topic.id);
+      setToastMessage(`Caminho ${topic.name} ${saved ? 'removido do' : 'guardado no'} caderno.`);
+    } catch (error) { setToastMessage(accountErrorMessage(error)); }
   }
 
-  function saveManyTopics(topics) {
-    const merged = [...new Set([...savedTopics, ...topics.map((t) => t.id)])];
-    const addedCount = merged.length - savedTopics.length;
-    persistSavedTopics(merged);
-    setToastMessage(
-      addedCount > 0
-        ? `${addedCount} ${addedCount === 1 ? 'caminho guardado' : 'caminhos guardados'} no seu caderno.`
-        : 'Estes caminhos já estão guardados no seu caderno.',
-    );
+  async function saveManyTopics(topics, moments) {
+    if (!accountUser) { account('signup', 'save'); return; }
+    try {
+      await collection.saveTopics(topics.map(topic => topic.id), moments);
+      setToastMessage('Suas escolhas foram guardadas na sua conta.');
+    } catch (error) { setToastMessage(accountErrorMessage(error)); }
   }
 
   function explore(category = 'todos') {
@@ -253,8 +238,9 @@ export function App({ onViewPending, onViewReady } = {}) {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
-  function account(mode) {
+  function account(mode, reason = '') {
     setAccountMode(mode);
+    setAccountReason(reason);
     setMenuOpen(false);
     accountRef.current.showModal();
   }
@@ -276,9 +262,9 @@ export function App({ onViewPending, onViewReady } = {}) {
     return (
       <>
         <Suspense fallback={null}>
-          <Catalog initialCategory={catalogCategory} onBack={home} onReady={onViewReady} onAccount={() => account('login')} hasAccount={Boolean(accountUser)} />
+          <Catalog initialCategory={catalogCategory} onBack={home} onReady={onViewReady} onAccount={(reason) => account(reason === 'save' ? 'signup' : 'login', reason)} savedState={savedState} collection={collection} />
         </Suspense>
-        <AccountDialog dialogRef={accountRef} mode={accountMode} onModeChange={setAccountMode} onUserChange={setAccountUser} onExplore={() => explore(catalogCategory)} />
+        <AccountDialog dialogRef={accountRef} mode={accountMode} reason={accountReason} onModeChange={setAccountMode} onExplore={() => explore(catalogCategory)} />
       </>
     );
   }
@@ -320,7 +306,7 @@ export function App({ onViewPending, onViewReady } = {}) {
               type="button"
               className={`saved-pill-trigger ${savedTopics.length > 0 ? 'has-items' : ''}`}
               aria-label={`Abrir meus caminhos salvos, ${savedTopics.length} itens`}
-              onClick={() => savedDialogRef.current.showModal()}
+              onClick={() => accountUser ? savedDialogRef.current.showModal() : account('signup', 'save')}
             >
               <Iconoir name={savedTopics.length > 0 ? 'bookmark-solid' : 'bookmark'} size={17} />
               <span className="saved-pill-label">Salvos</span>
@@ -419,7 +405,7 @@ export function App({ onViewPending, onViewReady } = {}) {
             onExplore={explore}
           />
 
-          <RoutineBuilder savedTopics={savedTopics} onSaveManyTopics={saveManyTopics} onExplore={explore} />
+          <RoutineBuilder savedTopics={savedTopics} routineMoments={savedState.routineMoments} accountId={accountUser?.id} saving={savedState.busy} onSaveManyTopics={saveManyTopics} onExplore={explore} />
 
           <section
             className="coffee-journey section-padding"
@@ -532,17 +518,20 @@ export function App({ onViewPending, onViewReady } = {}) {
         dialogRef={accountRef}
         mode={accountMode}
         onModeChange={setAccountMode}
-        onUserChange={setAccountUser}
+        reason={accountReason}
         onExplore={() => explore()}
       />
 
       <SavedPathsDialog
         dialogRef={savedDialogRef}
         savedTopics={savedTopics}
-        storageUnavailable={storageUnavailable}
+        status={savedState.status}
+        saving={savedState.busy}
+        onRetry={() => collection?.reload()}
         onToggleTopic={toggleTopic}
         onExplore={explore}
       />
+
 
       <SpotlightSearch
         open={spotlightOpen}

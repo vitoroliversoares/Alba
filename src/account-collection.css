@@ -1,0 +1,14 @@
+.collection-feedback { padding: 12px 0; color: var(--ink, #222621); }
+.collection-feedback .text-button { margin-top: 8px; text-decoration: underline; text-underline-offset: 4px; }
+.bookmark-button:disabled, .topic-save:disabled { opacity: .45; cursor: wait; }
+
+.account-social-options { display: grid; gap: 10px; margin: 24px 0; }
+.account-social-button { display: flex; align-items: center; gap: 12px; min-height: 48px; width: 100%; padding: 12px 16px; border: 1px solid #cfc7b7; border-radius: 4px; background: transparent; color: #16483b; font: inherit; text-align: left; cursor: pointer; }
+.account-social-button img { flex: 0 0 20px; }
+.account-social-button small { margin-left: auto; font-size: 11px; }
+.account-social-button:hover:not(:disabled) { border-color: #16483b; background: #16483b08; }
+.account-social-button:disabled { color: #686b61; cursor: default; }
+.account-social-button:disabled img { opacity: .5; }
+.account-divider { display: flex; align-items: center; gap: 12px; margin: 22px 0; color: #62675e; font-size: 12px; }
+.account-divider::before, .account-divider::after { content: ""; height: 1px; background: #ded6c7; flex: 1; }
+@media(max-width: 420px) { .account-social-button { gap: 10px; padding: 12px; font-size: 13px; } .account-social-button small { font-size: 10px; } }

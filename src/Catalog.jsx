@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Icon } from './Icon.jsx';
 import { BrandMark } from './components/BrandMark.jsx';
-import { allModes, FAVORITES_KEY, filterServices, OFFER_KINDS, offerStatus, readFavoriteIds, SERVICES, VERIFIED_AT } from './data/catalog.js';
+import { allModes, filterServices, OFFER_KINDS, offerStatus, SERVICES, VERIFIED_AT } from './data/catalog.js';
+import { accountErrorMessage } from '../public/assets/account-service.js';
+import { EMPTY_COLLECTION } from './account-collection.js';
 import './catalog.css';
 
 const CATEGORIES = [
@@ -81,21 +83,22 @@ export function OfferDetails({ service }) {
   );
 }
 
-export function Catalog({ onBack, initialCategory = 'todos', onReady, onAccount, hasAccount = false }) {
+export function Catalog({ onBack, initialCategory = 'todos', onReady, onAccount, savedState = EMPTY_COLLECTION, collection }) {
   useEffect(() => { onReady?.(); }, [onReady]);
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState(initialCategory);
   const [modes, setModes] = useState(allModes);
   const [draftModes, setDraftModes] = useState(allModes);
-  const [favorites, setFavorites] = useState(() => readFavoriteIds());
+  const favorites = savedState.favorites;
+  const hasAccount = Boolean(savedState.user);
   const [menuOpen, setMenuOpen] = useState(false);
   const [notice, setNotice] = useState('');
-  const [storageUnavailable, setStorageUnavailable] = useState(false);
   const searchRef = useRef(null);
   const filterRef = useRef(null);
   const favoritesRef = useRef(null);
   const aboutRef = useRef(null);
   const menuRef = useRef(null);
+  useEffect(() => { if (!hasAccount) favoritesRef.current?.close(); }, [hasAccount]);
   const savedServices = SERVICES.filter(service => favorites.includes(service.id));
   const visible = filterServices({ category, query, modes });
   const planCount = visible.reduce((sum, service) => sum + service.offers.length, 0);
@@ -107,11 +110,6 @@ export function Catalog({ onBack, initialCategory = 'todos', onReady, onAccount,
     return () => clearTimeout(timer);
   }, [notice]);
   useEffect(() => {
-    const onStorage = event => { if (event.key === FAVORITES_KEY || event.key === null) setFavorites(readFavoriteIds()); };
-    window.addEventListener('storage', onStorage);
-    return () => window.removeEventListener('storage', onStorage);
-  }, []);
-  useEffect(() => {
     if (!menuOpen) return;
     const pointer = event => { if (!menuRef.current?.contains(event.target)) setMenuOpen(false); };
     const keyboard = event => { if (event.key === 'Escape') setMenuOpen(false); };
@@ -120,17 +118,21 @@ export function Catalog({ onBack, initialCategory = 'todos', onReady, onAccount,
     return () => { document.removeEventListener('pointerdown', pointer); document.removeEventListener('keydown', keyboard); };
   }, [menuOpen]);
 
-  function toggleFavorite(service) {
+  function openFavorites() {
+    if (!hasAccount) { onAccount?.('save'); return; }
+    favoritesRef.current.showModal();
+  }
+  async function toggleFavorite(service) {
+    if (!hasAccount) { onAccount?.('save'); return; }
     const saved = favorites.includes(service.id);
-    const next = saved ? favorites.filter(id => id !== service.id) : [...favorites, service.id];
-    setFavorites(next);
-    try { localStorage.setItem(FAVORITES_KEY, JSON.stringify(next)); setStorageUnavailable(false); }
-    catch { setStorageUnavailable(true); }
-    setNotice(`${service.name} ${saved ? 'removido dos' : 'salvo nos'} favoritos.`);
+    try {
+      await collection.toggleFavorite(service.id);
+      setNotice(`${service.name} ${saved ? 'removido dos' : 'salvo nos'} favoritos.`);
+    } catch (error) { setNotice(accountErrorMessage(error)); }
   }
   function favoriteButton(service) {
     const saved = favorites.includes(service.id);
-    return <button type="button" className={`icon-button bookmark-button ${saved ? 'is-saved' : ''}`} aria-pressed={saved} aria-label={`${saved ? 'Remover' : 'Salvar'} ${service.name} ${saved ? 'dos' : 'nos'} favoritos`} onClick={() => toggleFavorite(service)}><Icon name={saved ? 'bookmark-solid' : 'bookmark-simple'} size={23} /></button>;
+    return <button type="button" disabled={hasAccount && (savedState.busy || savedState.status !== 'ready')} className={`icon-button bookmark-button ${saved ? 'is-saved' : ''}`} aria-pressed={saved} aria-label={hasAccount ? `${saved ? 'Remover' : 'Salvar'} ${service.name} ${saved ? 'dos' : 'nos'} favoritos` : `Criar conta para salvar ${service.name}`} onClick={() => toggleFavorite(service)}><Icon name={saved ? 'bookmark-solid' : 'bookmark-simple'} size={23} /></button>;
   }
   function clearFilters() { setQuery(''); setCategory('todos'); setModes(allModes()); setDraftModes(allModes()); }
 
@@ -142,11 +144,11 @@ export function Catalog({ onBack, initialCategory = 'todos', onReady, onAccount,
         <header className="masthead">
           <a href="#inicio" className="brand" aria-label="Alba — início"><span className="brand-name">Alba</span><span className="brand-description">Hub de Benefícios Estudantis</span></a>
           <div className="header-actions">
-            {onAccount && <button type="button" className="text-button catalog-account-link" onClick={onAccount}>{hasAccount ? 'Minha conta' : 'Entrar'}</button>}
-            <button type="button" className="favorites-link" aria-label="Favoritos" onClick={() => favoritesRef.current.showModal()}><Icon name={savedServices.length ? 'bookmark-solid' : 'bookmark-simple'} size={25} /><span>Favoritos</span>{savedServices.length > 0 && <span className="favorite-count" aria-label={`${savedServices.length} salvos`}>{savedServices.length}</span>}</button>
+            {onAccount && <button type="button" className="text-button catalog-account-link" onClick={() => onAccount()}>{hasAccount ? 'Minha conta' : 'Entrar'}</button>}
+            <button type="button" className="favorites-link" aria-label="Favoritos" onClick={openFavorites}><Icon name={savedServices.length ? 'bookmark-solid' : 'bookmark-simple'} size={25} /><span>Favoritos</span>{savedServices.length > 0 && <span className="favorite-count" aria-label={`${savedServices.length} salvos`}>{savedServices.length}</span>}</button>
             <div className="mobile-menu" ref={menuRef}>
               <button type="button" className="icon-button" aria-label="Abrir menu" aria-expanded={menuOpen} aria-controls="main-menu" onClick={() => setMenuOpen(!menuOpen)}><Icon name={menuOpen ? 'x' : 'list'} size={25} /></button>
-              {menuOpen && <nav className="menu-panel" id="main-menu" aria-label="Navegação do catálogo"><button type="button" onClick={onBack}>A Alba</button><button type="button" onClick={() => { setMenuOpen(false); favoritesRef.current.showModal(); }}>Meus favoritos</button><button type="button" onClick={() => { setMenuOpen(false); aboutRef.current.showModal(); }}>Sobre o catálogo</button></nav>}
+              {menuOpen && <nav className="menu-panel" id="main-menu" aria-label="Navegação do catálogo"><button type="button" onClick={onBack}>A Alba</button><button type="button" onClick={() => { setMenuOpen(false); openFavorites(); }}>Meus favoritos</button><button type="button" onClick={() => { setMenuOpen(false); aboutRef.current.showModal(); }}>Sobre o catálogo</button></nav>}
             </div>
           </div>
         </header>
@@ -198,9 +200,8 @@ export function Catalog({ onBack, initialCategory = 'todos', onReady, onAccount,
         <div className="dialog-actions"><button type="button" className="text-button" onClick={() => setDraftModes(allModes())}>Limpar filtros</button><button type="button" className="button button-primary" onClick={() => { setModes({ ...draftModes }); filterRef.current.close(); }}>Ver benefícios</button></div>
       </Dialog>
       <Dialog dialogRef={favoritesRef} title="Suas boas descobertas" className="favorites-dialog">
-        <p className="dialog-intro">Serviços guardados para consultar depois, neste navegador.</p>
-        {savedServices.length ? <div className="saved-list">{savedServices.map(service => <article className="saved-benefit" key={service.id}><BrandMark service={service} /><div><h3>{service.name}</h3><p>{service.offers.length} {service.offers.length === 1 ? 'opção' : 'opções'} de acesso</p></div>{favoriteButton(service)}</article>)}</div> : <div className="saved-empty"><Icon name="bookmark-simple" size={40} /><h3>Guarde a primeira descoberta.</h3><p>Use o marcador de um serviço para encontrá-lo aqui.</p><button type="button" className="button button-primary" onClick={() => favoritesRef.current.close()}>Explorar benefícios</button></div>}
-        {storageUnavailable && <p className="storage-warning" role="status">O armazenamento está bloqueado. Seus favoritos ficam disponíveis apenas nesta visita.</p>}
+        <p className="dialog-intro">Serviços guardados na sua conta, para acompanhar você.</p>
+        {savedState.status === 'loading' ? <p role="status">Buscando suas descobertas…</p> : savedState.status === 'error' ? <div className="collection-feedback"><p role="status">Não foi possível carregar seus favoritos.</p><button type="button" className="text-button" onClick={() => collection?.reload()}>Tentar novamente</button></div> : savedServices.length ? <div className="saved-list">{savedServices.map(service => <article className="saved-benefit" key={service.id}><BrandMark service={service} /><div><h3>{service.name}</h3><p>{service.offers.length} {service.offers.length === 1 ? 'opção' : 'opções'} de acesso</p></div>{favoriteButton(service)}</article>)}</div> : <div className="saved-empty"><Icon name="bookmark-simple" size={40} /><h3>Guarde a primeira descoberta.</h3><p>Use o marcador de um serviço para encontrá-lo aqui.</p><button type="button" className="button button-primary" onClick={() => favoritesRef.current.close()}>Explorar benefícios</button></div>}
       </Dialog>
       <Dialog dialogRef={aboutRef} title="Informação antes da assinatura." className="about-dialog">
         <p className="dialog-intro">Cada opção tem fonte oficial, requisitos e data de conferência. A aprovação e a contratação acontecem no fornecedor.</p>

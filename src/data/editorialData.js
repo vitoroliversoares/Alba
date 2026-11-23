@@ -54,7 +54,7 @@ export const TOPICS = [
     criteriaSummary: [
       { icon: 'arrow-up-right', label: 'Fonte', value: 'Destino direto no site oficial do serviço' },
       { icon: 'calendar', label: 'Conferência', value: 'Data de verificação e aviso honesto quando precisar de revisão' },
-      { icon: 'shield-check', label: 'Privacidade', value: 'Exploração e marcadores locais sem exigir cadastro' },
+      { icon: 'shield-check', label: 'Privacidade', value: 'Catálogo aberto; escolhas guardadas na sua conta' },
     ],
   },
 ];
@@ -87,8 +87,8 @@ export const STEPS = [
     icon: 'bookmark',
     progress: 0.94,
     title: 'Guarde para quando precisar.',
-    text: 'Salve os benefícios no navegador e volte depois, sem criar conta. Para ativar uma oferta, siga para o site oficial do fornecedor.',
-    detail: 'Marcadores locais no navegador, sem precisar criar conta.',
+    text: 'Crie sua conta gratuita para guardar benefícios e reencontrá-los quando precisar. Para ativar uma oferta, siga para o site oficial do fornecedor.',
+    detail: 'Suas descobertas guardadas na sua conta.',
   },
 ];
 
@@ -189,11 +189,11 @@ export const ANATOMY_HOTSPOTS = [
   },
   {
     id: 'bookmark',
-    label: 'Marcador livre',
+    label: 'Suas descobertas',
     icon: 'bookmark',
-    badge: 'Acesso sem conta',
+    badge: 'Favoritos na conta',
     title: 'Explore e salve no seu ritmo',
-    text: 'Explorar, pesquisar, filtrar e guardar favoritos não exige cadastro. Suas marcações ficam armazenadas localmente neste navegador.',
+    text: 'Explore, pesquise e filtre sem cadastro. Para guardar favoritos e editorias, crie sua conta gratuita e leve suas escolhas para outros aparelhos.',
   },
 ];
 
@@ -210,7 +210,7 @@ export const MARQUEE_ITEMS = [
 export const FAQ_ITEMS = [
   {
     question: 'Preciso criar uma conta?',
-    answer: 'Não. Você pode explorar, buscar e salvar benefícios sem entrar. A conta é opcional, e suas marcações continuam salvas apenas neste navegador.',
+    answer: 'Para explorar, buscar e consultar as ofertas, não. Para guardar favoritos e editorias, crie uma conta gratuita ou entre na sua conta.',
   },
   {
     question: 'Como sei se posso usar um benefício?',
@@ -222,7 +222,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: 'Meus favoritos aparecem em outro aparelho?',
-    answer: 'Não. Favoritos e editorias ficam apenas no navegador em que você os salvou, mesmo com uma conta. Eles não aparecem em outro aparelho e podem ser apagados ao limpar os dados de navegação. Com o armazenamento bloqueado, valem só para a visita atual.',
+    answer: 'Sim. Suas escolhas ficam vinculadas à sua conta. Entre com o mesmo e-mail em outro aparelho para reencontrar os favoritos e as editorias que você guardou.',
   },
   {
     question: 'Como encontro um benefício?',

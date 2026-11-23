@@ -1,6 +1,6 @@
 # Banco de contas da Alba
 
-Projeto autorizado: **Alba-Hub** (`kidqssqgmpsurekawbbh`), ligado ao Main. O fork de avaliação permanece desconectado. Estrutura criada em 22/11/2026 por solicitação explícita do responsável (DEC-021).
+Projeto autorizado: **Alba-Hub** (`kidqssqgmpsurekawbbh`), ligado ao Main. O Main integra Google, e-mail/senha e escolhas vinculadas à conta; o responsável autorizou a promoção em 23/11/2026. Estrutura criada em 22/11/2026 por solicitação explícita do responsável (DEC-021).
 
 | Tabela | Uso | Escrita pelo cliente autenticado |
 | --- | --- | --- |
@@ -15,7 +15,7 @@ Um trigger em `auth.users` cria perfil e linha de preferências no cadastro, apr
 
 ## Escopo atual
 
-Perfis e preferências iniciais passam a ser criados automaticamente no banco. **A interface ainda não sincroniza favoritos, editorias ou momentos:** suas marcações continuam no navegador, inclusive para pessoas conectadas. Os novos registros de preferências iniciam vazios; `routine_moments = NULL` significa que a rotina ainda não foi configurada, enquanto `[]` representa uma seleção explicitamente vazia.
+Perfis e preferências iniciais passam a ser criados automaticamente no banco. **A interface utiliza a Data API para favoritos, editorias e momentos salvos por pessoas autenticadas.** Todas as operações incluem o token da sessão e filtro pelo proprietário. Visitantes não podem salvar. Os marcadores legados do navegador não são importados automaticamente e suas chaves são removidas na primeira entrada. Os novos registros de preferências iniciam vazios; `routine_moments = NULL` significa que a rotina ainda não foi configurada, enquanto `[]` representa uma seleção explicitamente vazia.
 
 O catálogo continua versionado em `src/data/catalog.js`. `service_id` usa o slug do serviço; não há chave estrangeira para um catálogo remoto. Novas editorias ou momentos exigem revisar as restrições das preferências antes de habilitar sincronização.
 

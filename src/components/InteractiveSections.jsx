@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   FAQ_ITEMS,
   LANDING_SECTIONS,
-  MOMENTS_STORAGE_KEY,
   ROUTINE_MOMENTS,
   TOPICS,
 } from '../data/editorialData.js';
@@ -18,17 +17,6 @@ const normalize = (value) =>
     .replace(/[\u0300-\u036f]/g, '')
     .toLowerCase()
     .trim();
-
-function readSavedMoments() {
-  try {
-    const parsed = JSON.parse(localStorage.getItem(MOMENTS_STORAGE_KEY) || '["provas-tcc"]');
-    if (!Array.isArray(parsed)) return ['provas-tcc'];
-    const valid = parsed.filter((id) => ROUTINE_MOMENTS.some((m) => m.id === id));
-    return valid;
-  } catch {
-    return ['provas-tcc'];
-  }
-}
 
 // 1. Instant Editorial Spotlight (Ctrl K / ⌘ K) — navigates presentation chapters, topics & catalog entry
 export function SpotlightSearch({
@@ -289,21 +277,13 @@ export function CampusWorkbench({ savedTopics, onToggleTopic, onExplore }) {
   );
 }
 
-// 4. An open editorial guide, with choices saved only in this browser.
-export function RoutineBuilder({ savedTopics, onSaveManyTopics, onExplore }) {
-  const [selectedMoments, setSelectedMoments] = useState(readSavedMoments);
-
-  function chooseMoments(next) {
-    setSelectedMoments(next);
-    try {
-      localStorage.setItem(MOMENTS_STORAGE_KEY, JSON.stringify(next));
-    } catch {
-      // The guide still works in memory when storage is unavailable.
-    }
-  }
+// Choices are temporary until the signed-in person saves the guide explicitly.
+export function RoutineBuilder({ savedTopics, routineMoments, accountId, saving, onSaveManyTopics, onExplore }) {
+  const [selectedMoments, setSelectedMoments] = useState(routineMoments ?? ['provas-tcc']);
+  useEffect(() => { setSelectedMoments(routineMoments ?? ['provas-tcc']); }, [accountId, routineMoments]);
 
   function toggleMoment(id) {
-    chooseMoments(selectedMoments.includes(id)
+    setSelectedMoments(selectedMoments.includes(id)
       ? selectedMoments.filter(item => item !== id)
       : [...selectedMoments, id]);
   }
@@ -315,7 +295,7 @@ export function RoutineBuilder({ savedTopics, onSaveManyTopics, onExplore }) {
     return TOPICS.filter(topic => ids.has(topic.id));
   }, [selectedMoments]);
   const primary = matchedTopics[0];
-  const allAlreadySaved = matchedTopics.length > 0 && matchedTopics.every(topic => savedTopics.includes(topic.id));
+  const allAlreadySaved = matchedTopics.length > 0 && matchedTopics.every(topic => savedTopics.includes(topic.id)) && Array.isArray(routineMoments) && selectedMoments.length === routineMoments.length && selectedMoments.every(id => routineMoments.includes(id));
 
   return (
     <section className="routine-builder" id="rotina" aria-labelledby="routine-title">
@@ -351,7 +331,7 @@ export function RoutineBuilder({ savedTopics, onSaveManyTopics, onExplore }) {
                 {matchedTopics.length > 1 && (
                   <div className="routine-also"><span>Vale passar também por</span>{matchedTopics.slice(1).map(topic => <button type="button" key={topic.id} className="text-button" onClick={() => onExplore(topic.id)}>{topic.name}<Iconoir name="nav-arrow-right" size={14} /></button>)}</div>
                 )}
-                <button type="button" className="text-button routine-save" disabled={allAlreadySaved} onClick={() => onSaveManyTopics(matchedTopics)}><Iconoir name={allAlreadySaved ? 'bookmark-solid' : 'bookmark'} size={17} />{allAlreadySaved ? 'Editorias guardadas' : 'Guardar estas editorias'}</button>
+                <button type="button" className="text-button routine-save" disabled={allAlreadySaved || saving} onClick={() => onSaveManyTopics(matchedTopics, selectedMoments)}><Iconoir name={allAlreadySaved ? 'bookmark-solid' : 'bookmark'} size={17} />{saving ? 'Guardando…' : allAlreadySaved ? 'Escolhas guardadas' : 'Guardar estas editorias'}</button>
               </div>
             </>
           ) : (
@@ -439,11 +419,13 @@ export function EditorialFaq() {
   );
 }
 
-// 7. Saved Editorial Paths Dialog (landing topics saved locally, separate from catalog favorites)
+// 7. Editorial paths associated with the current account.
 export function SavedPathsDialog({
   dialogRef,
   savedTopics,
-  storageUnavailable,
+  status,
+  saving,
+  onRetry,
   onToggleTopic,
   onExplore,
 }) {
@@ -461,7 +443,7 @@ export function SavedPathsDialog({
       <div className="dialog-inner">
         <div className="dialog-heading">
           <div>
-            <p className="eyebrow">Seu caderno local</p>
+            <p className="eyebrow">Seu caderno na Alba</p>
             <h2 id="landing-saved-title">Meus caminhos</h2>
           </div>
           <button
@@ -474,10 +456,10 @@ export function SavedPathsDialog({
           </button>
         </div>
         <p className="dialog-intro">
-          Editorias guardadas para revisitar no seu ritmo — salvas apenas neste navegador, sem criar conta.
+          Editorias guardadas na sua conta, para revisitar no seu ritmo.
         </p>
 
-        {items.length > 0 ? (
+        {status === 'loading' ? <p role="status">Buscando seus caminhos…</p> : status === 'error' ? <div className="collection-feedback"><p role="status">Não foi possível carregar suas escolhas.</p><button type="button" className="text-button" onClick={onRetry}>Tentar novamente</button></div> : items.length > 0 ? (
           <div className="saved-list">
             {items.map((topic) => (
               <article className="saved-benefit" key={topic.id}>
@@ -492,6 +474,7 @@ export function SavedPathsDialog({
                   type="button"
                   className="icon-button bookmark-button is-saved"
                   aria-label={`Remover caminho ${topic.name}`}
+                  disabled={saving}
                   onClick={() => onToggleTopic(topic)}
                 >
                   <Iconoir name="bookmark-solid" size={20} />
@@ -499,7 +482,7 @@ export function SavedPathsDialog({
               </article>
             ))}
             <div className="dialog-actions">
-              <p className="storage-note">Salvo localmente neste navegador.</p>
+              <p className="storage-note">Guardado na sua conta.</p>
               <FlowButton
                 variant="primary"
                 onClick={() => {
@@ -530,11 +513,6 @@ export function SavedPathsDialog({
           </div>
         )}
 
-        {storageUnavailable && (
-          <p className="storage-warning" role="status">
-            O armazenamento local está bloqueado. Seus caminhos ficam ativos apenas durante esta visita.
-          </p>
-        )}
       </div>
     </dialog>
   );

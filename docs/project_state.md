@@ -1,39 +1,27 @@
 ---
 title: Estado do projeto — Alba
 updated: 2026-11-23
-status: prototipo-funcional
+status: beta-em-construcao
 ---
 
 # Estado do projeto — Alba
 
-O Main reúne a landing aprovada e o catálogo avaliado em fork. O repositório público é [vitoroliversoares/Alba](https://github.com/vitoroliversoares/Alba), com a branch `main`. Forks, backups e arquivos privados do workspace não integram o repositório. A configuração real de contas continua somente no Main local; o Git inclui um exemplo desconectado.
-
-A publicação de avaliação está em [alba-hub.vercel.app](https://alba-hub.vercel.app), na Vercel, com Node 24. O catálogo está acessível sem login; a configuração de contas dessa publicação permanece desativada até concluir SMTP e retornos de autenticação. O banner do README foi criado no Canva e aprovado com somente o texto Alba.
+O responsável autorizou a promoção das contas para Main em 23/11/2026. O site público é https://alba-hub.vercel.app/, conectado ao repositório `vitoroliversoares/Alba`, branch `main`, na Vercel com Node 24. A página de Apoie continua apenas no fork, fora do Main.
 
 | Área | Implementado | Limite atual |
 | --- | --- | --- |
-| Identidade | Creme, verde, nome Alba em Fraunces 800, DM Sans, sol e livro | Materiais visuais têm escopo de licença próprio |
-| Catálogo brasileiro | 12 serviços e 15 opções individuais | Preços e disponibilidade exigem revisão contínua |
-| Figma | Gratuidade educacional pesquisada e aprovada | Reverificação e vencimento na conta; fontes divergem sobre duração |
-| Itens expandidos | Ilustrações por categoria restauradas | Logos permanecem nos itens recolhidos |
-| Navegação | Todos ao abrir/recarregar o catálogo | Categoria explícita ainda abre sua própria seleção |
-| Carregamento | Sol e livro, mínimo de 1 s e saída de 240 ms | Movimento reduzido respeitado |
-| Contas | Supabase Auth e tabelas com RLS por usuário | Validação de e-mail real e configuração pública pendentes |
-| Favoritos e preferências | Persistência no navegador | Sem sincronização com banco, inclusive com login |
-| Privacidade | Página com explicação da versão e limpeza local | Contato, hospedagem/logs e exclusão de conta precisam ser concluídos |
+| Identidade | Creme, verde, nome Alba em Fraunces 800, sol e livro | Materiais visuais têm escopo próprio de licença |
+| Catálogo | 12 serviços, 15 opções individuais no Brasil | Revisão contínua de preços e disponibilidade |
+| Contas | Google como único acesso social, e-mail/senha com Supabase Auth | Consentimento/retorno completo e SMTP pendem de validação do responsável |
+| Retorno OAuth | Raiz do site público e callback alternativo compatível, com PKCE S256 | Lista de retornos e credenciais são administradas no Supabase |
+| Favoritos e preferências | Vinculados à conta; RLS e salvamento autenticado | Recarregar exige novo login; marcadores legados não são importados |
+| Privacidade | Dados, finalidades, infraestrutura, direitos e registro temporário OAuth descritos | Contato, canal de direitos/exclusão, retenção técnica e transferência internacional ainda precisam ser concluídos |
 | Versão dos EUA | Planejamento documental | Sem catálogo ou seletor americano |
 
 ## Verificação
 
-Na revisão de 22/11/2026, **26 testes passaram**, cobrindo catálogo, contas, privacidade, arquivos da distribuição estática e geração segura de configuração para deploy. O QA adicional passou na renderização dos 15 planos, 12 itens recolhidos, três categorias e entrada direta em Todos; 72 recursos retornaram HTTP 200, o GLB foi lido e sete pares de contraste atenderam aos limiares definidos. Persistência, corrupção e bloqueio de armazenamento também passaram. O build padrão encontrou `spawn EPERM` neste workspace; a distribuição foi validada pela alternativa com esbuild nativo. Relatórios locais em `qa/` são gerados durante a validação e não são publicados como evidência visual.
+Passaram 50 testes de Auth, dados da conta, OAuth, privacidade, catálogo, configuração e artefatos na promoção. O assessor de segurança do Supabase retornou `lints: []`; o provedor Google está ativo. As consultas anônimas às tabelas de escolhas são negadas. O agente não criou usuários nem concluiu login em conta pessoal Google.
 
-A avaliação visual do responsável foi dada em conversa. Não há captura automatizada de navegador desta promoção. SSR, testes unitários e leitura de CSS não substituem teste visual ou fluxo completo de cadastro. Não foram criados usuários nem enviados e-mails de teste nesta promoção.
+O build local usa esbuild nativo devido à limitação de spawn EPERM deste workspace; a publicação usa o build padrão Vite na Vercel. Os relatórios de QA locais não substituem avaliação visual ou consentimento/retorno real do Google.
 
-## Pendências para lançamento
-
-- Validar confirmação e recuperação com e-mail real e configurar envio para público externo.
-- Concluir contato e obrigações de privacidade conforme a hospedagem escolhida.
-- Rever ofertas com prazo: campanha Adobe até 27/11/2026 e resgate Google AI Plus até 31/12/2026.
-- Fazer QA visual em celular e desktop e observar navegação, foco e WebGL no navegador.
-
-O protótipo público para colaboração não deve ser descrito como lançamento concluído. A licença do código, os créditos e a documentação de contribuição estão prontos para o repositório.
+Mais detalhes em [Autenticação](authentication.md), [banco](../supabase/README.md) e [aviso de privacidade](../public/privacidade.html). Forks, backups e credenciais reais permanecem fora do Git; a URL e a chave publicável são configuradas no ambiente de produção.
