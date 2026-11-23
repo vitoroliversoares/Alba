@@ -12,7 +12,7 @@ A publicação de avaliação está em [alba-hub.vercel.app](https://alba-hub.ve
 
 | Área | Implementado | Limite atual |
 | --- | --- | --- |
-| Identidade | Creme, verde, Fraunces, DM Sans, sol e livro | Materiais visuais têm escopo de licença próprio |
+| Identidade | Creme, verde, nome Alba em Fraunces 800, DM Sans, sol e livro | Materiais visuais têm escopo de licença próprio |
 | Catálogo brasileiro | 12 serviços e 15 opções individuais | Preços e disponibilidade exigem revisão contínua |
 | Figma | Gratuidade educacional pesquisada e aprovada | Reverificação e vencimento na conta; fontes divergem sobre duração |
 | Itens expandidos | Ilustrações por categoria restauradas | Logos permanecem nos itens recolhidos |

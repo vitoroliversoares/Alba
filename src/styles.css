@@ -16,7 +16,7 @@ h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-optical-sizing: auto;
 .newspaper { max-width: 1352px; margin: 0 auto; padding: 0 30px; border: 1px solid var(--soft-rule); border-radius: 11px; background: var(--paper); }
 .masthead { height: 80px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--green); gap: 16px; }
 .brand { display: flex; align-items: center; text-decoration: none; min-width: 0; }
-.brand-name { font-family: 'Fraunces', Georgia, serif; font-weight: 750; font-size: 32px; letter-spacing: -1.4px; color: var(--green); white-space: nowrap; line-height: 1.2; }
+.brand-name { font-family: 'Fraunces', Georgia, serif; font-weight: 800; font-size: 32px; letter-spacing: -1.4px; color: var(--green); white-space: nowrap; line-height: 1.2; }
 .brand-description { font-size: 15px; margin-left: 25px; padding-left: 25px; border-left: 1px solid var(--ink); line-height: 28px; white-space: nowrap; }
 .header-actions { display: flex; align-items: center; gap: 6px; }
 .favorites-link { display: flex; align-items: center; background: transparent; gap: 9px; padding: 10px 0 10px 10px; font-size: 15px; min-height: 44px; }

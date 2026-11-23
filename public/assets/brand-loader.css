@@ -6,7 +6,7 @@
 .brand-loader-content { width: min(100%, 360px); box-sizing: border-box; padding: 32px 24px; text-align: center; }
 .brand-loader-mark { width: 160px; margin: 0 auto 19px; animation: brand-loader-float 2400ms var(--ease-in-out) infinite; }
 .brand-loader-mark img { display: block; width: 100%; height: auto; animation: brand-loader-reveal 240ms var(--ease-out, cubic-bezier(.23, 1, .32, 1)) both; }
-.brand-loader-name { margin: 0; font: 550 25px/1.25 'Fraunces', Georgia, serif; letter-spacing: -.6px; animation: brand-loader-reveal 240ms 60ms var(--ease-out, cubic-bezier(.23, 1, .32, 1)) both; }
+.brand-loader-name { margin: 0; font: 800 25px/1.25 'Fraunces', Georgia, serif; letter-spacing: -.6px; animation: brand-loader-reveal 240ms 60ms var(--ease-out, cubic-bezier(.23, 1, .32, 1)) both; }
 .brand-loader-message { margin: 12px 0 0; font: 12px/1.7 'DM Sans', sans-serif; color: var(--muted, #64685e); animation: brand-loader-reveal 240ms 120ms var(--ease-out, cubic-bezier(.23, 1, .32, 1)) both; }
 .brand-loader-line { position: relative; display: block; width: 88px; height: 2px; margin: 23px auto 0; overflow: hidden; border-radius: 2px; background: var(--soft-rule, #dcd4c5); }
 .brand-loader-line::after { content: ''; display: block; width: 30px; height: 100%; border-radius: inherit; background: var(--ochre, #F2D38B); animation: brand-loader-travel 1600ms linear infinite; }
