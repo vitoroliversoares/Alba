@@ -1,14 +1,11 @@
 <p align="center">
-  <img src="public/assets/sol-e-livro-logo.png" width="190" alt="Logo da Alba: um livro aberto com o sol ao fundo." />
-</p>
-
-<h1 align="center">Alba</h1>
-
-<p align="center">
-  <img src="docs/assets/readme-cover.svg" width="100%" alt="Alba — De estudantes para estudantes. Boas descobertas para a vida estudantil." />
+  <a href="https://alba-hub.vercel.app">
+    <img src="docs/assets/alba-banner.png" width="738" alt="Alba — banner em creme e verde, com o sol e o livro." />
+  </a>
 </p>
 
 <p align="center">
+  <a href="https://alba-hub.vercel.app">Acessar a Alba</a> ·
   <a href="#um-semestre-com-mais-possibilidades">Conheça a Alba</a> ·
   <a href="#para-rodar-por-aí">Rodar localmente</a> ·
   <a href="CONTRIBUTING.md">Contribuir</a> ·
@@ -17,7 +14,7 @@
 
 ## Um semestre com mais possibilidades
 
-A Alba reúne benefícios digitais para estudantes brasileiros em um catálogo gratuito, independente e aberto à colaboração. Um lugar para descobrir ferramentas, entender quem pode usar e encontrar o caminho oficial para solicitar cada oferta.
+A Alba reúne benefícios digitais para estudantes brasileiros em um catálogo gratuito, independente e aberto à colaboração. Um lugar para descobrir ferramentas, entender quem pode usar e encontrar o caminho oficial para solicitar cada oferta. Explore em **[alba-hub.vercel.app](https://alba-hub.vercel.app)**.
 
 **De estudantes para estudantes.** Sem cobrança para explorar, sem matrícula enviada à Alba e sem conta obrigatória. A aprovação e a contratação acontecem com cada fornecedor.
 

@@ -1,12 +1,14 @@
 ---
 title: Estado do projeto — Alba
-updated: 2026-11-22
+updated: 2026-11-23
 status: prototipo-funcional
 ---
 
 # Estado do projeto — Alba
 
 O Main reúne a landing aprovada e o catálogo avaliado em fork. O repositório público é [vitoroliversoares/Alba](https://github.com/vitoroliversoares/Alba), com a branch `main`. Forks, backups e arquivos privados do workspace não integram o repositório. A configuração real de contas continua somente no Main local; o Git inclui um exemplo desconectado.
+
+A publicação de avaliação está em [alba-hub.vercel.app](https://alba-hub.vercel.app), na Vercel, com Node 24. O catálogo está acessível sem login; a configuração de contas dessa publicação permanece desativada até concluir SMTP e retornos de autenticação. O banner do README foi criado no Canva e aprovado com somente o texto Alba.
 
 | Área | Implementado | Limite atual |
 | --- | --- | --- |
